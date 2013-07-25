@@ -47,6 +47,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
 	line-height: 1;
+	background: #f1f1f1;
 	}
 
 #body-wrapper {
@@ -1471,3 +1472,12 @@ aside.warning {
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
+
+#menu-top { padding: 0px; }
+#menu-top li { float: left; }
+
+a:visited { color: #800080; }
+
+#authorbox { display: none; }
+
+.advanced-recent-posts .date { font-weight: bold; color: #14549e; }
