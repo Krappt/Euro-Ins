@@ -1481,3 +1481,43 @@ a:visited { color: #800080; }
 #authorbox { display: none; }
 
 .advanced-recent-posts .date { font-weight: bold; color: #14549e; }
+
+/*стили для текста*/
+
+p {/*размер шрифта и позиционирование текста добавили временно, пока для всего сайта ты не пропишешь размер текста 14*/
+	text-align: justify;
+         font-size: 14px;
+	margin-bottom: 8px;
+}
+
+p a {
+  text-decoration: underline;
+}
+
+ p.simple {
+	 text-indent: 30px;
+         text-align: justify;
+         font-size: 14px;
+	 margin-bottom: 8px;
+	}
+
+ul.ul, ol.ol {
+	font-size: 14px;
+	text-align: justify;
+	margin-left: 30px;
+	}
+
+article .posttitle, article .posttitle a {
+	color: #222222;
+        font-size:25px; /* размер шрифта заголовка h1 */
+	}
+
+h2.heading2 {
+	font-size: 20px;
+	color: #222222
+	}
+
+h3.heading3 {
+	font-size: 17px;
+	color: #222222
+	}
