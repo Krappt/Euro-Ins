@@ -69,7 +69,8 @@ echo '</script>'.PHP_EOL;
 echo '<div id="menus_wrapFLASH">'.PHP_EOL;
 echo '<script>removeMenu();</script>'.PHP_EOL;
 	for ($i = 1; $i <= 5; $i++) {
-		echo '<div class="menu_elem"><embed align="middle" height="114" width="137" allowscriptaccess="sameDomain" allowfullscreen="false" src="flash/'.$ID.'-'.$i.'.swf" quality="high" bgcolor="#14549e" type="application/x-shockwave-flash"></div>'.PHP_EOL;
+	    // http://pokrovskii.com/razmeshhaem-chto-libo-poverx-flash-bloka/
+	    echo '<div class="menu_elem" style="position: relative;"><a class="flash_link" href="'.$links[$ID][$i].'"></a><object type="application/x-shockwave-flash" data="flash/'.$ID.'-'.$i.'.swf" width="137" height="114"><param name="wmode" value="opaque"><param name="movie" value=data="flash/'.$ID.'-'.$i.'.swf" /><param name="quality" value="high" /></object></div>'.PHP_EOL;
 	}
 echo '</div></div>'.PHP_EOL;
 
