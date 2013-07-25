@@ -130,6 +130,7 @@ function pw_top_content_widgetized_area() {
 	}
 }
 add_action('pw_index_top', 'pw_top_content_widgetized_area');
+add_action('pw_page_top', 'pw_top_content_widgetized_area');
 
 /*
  * Basic Loop
