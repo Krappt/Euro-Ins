@@ -131,6 +131,8 @@ function pw_top_content_widgetized_area() {
 }
 add_action('pw_index_top', 'pw_top_content_widgetized_area');
 add_action('pw_page_top', 'pw_top_content_widgetized_area');
+add_action('pw_single_top', 'pw_top_content_widgetized_area');
+add_action('pw_category_top', 'pw_top_content_widgetized_area');
 
 /*
  * Basic Loop
@@ -401,8 +403,6 @@ function pw_post_header() {
 			<?php if(!is_page()) { ?>
 			<h2 class="meta">
 				<?php 
-				_e("by", "presswork"); echo " "; the_author_posts_link(); 
-				echo '&nbsp;&bull;&nbsp;';
 				the_time(get_option('date_format'));
 				if(!is_home()) {
 					echo '&nbsp;&bull;&nbsp;';
@@ -505,27 +505,6 @@ function pw_post_footer() {
 }
 add_action('pw_single_post_middle', 'pw_post_footer', 12);
 add_action('pw_page_post_middle', 'pw_post_footer', 12);
-
-/*
- * Author box
- */
-function pw_authorbox() {
-	echo pw_function_handle(__FUNCTION__);
-	global $author;
-	?>
-    <div id="authorbox" class="clearfix fl">
-        <?php if (function_exists('get_avatar')) { echo get_avatar( get_the_author_meta('email', $author), '80' ); }?>
-        <div class="authortext">
-           <header>
-           		<h4><?php _e('About', "presswork"); ?> <?php if(is_author()) the_author_meta('display_name', $author); else the_author_posts_link(); ?></h4>
-           </header>
-           <p><?php the_author_meta('description', $author); ?></p>
-           <p><a href="<?php the_author_meta('url', $author); ?>"><?php the_author_meta('url', $author); ?></a></p>
-        </div>
-    </div>
-<?php
-}
-add_action('pw_single_bottom', 'pw_authorbox');
 
 /*
  * Columns top
