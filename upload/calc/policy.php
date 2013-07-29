@@ -4,7 +4,8 @@
 	include('../includes/core.php');
 	if ($_POST['totalHumans'] == '') { die('Hacking attempt!'); }
 
-	include('policy_config.php');
+	require('policy_config.php');
+	require('policy_db.php');
 
 	if ($GeneratePDF) {
 		ini_set('memory_limit', '64M');
@@ -15,7 +16,6 @@
 	}
 
 	// ѕишем в базу и загружаем в массив
-	include('policy_db.php');
 	SavePolicy();
 	LoadPolicy();
 
