@@ -6,6 +6,10 @@
 
 	include('policy_config.php');
 
+	if ($GeneratePDF) {
+		ini_set('memory_limit', '64M');
+	}
+
 	if ($Debug) {
 		ShowPOST();
 	}
