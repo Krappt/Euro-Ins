@@ -1,0 +1,195 @@
+<?php
+	global $Policy, $PolicyNo;
+?>
+
+<style type="text/css">
+	@page {
+		margin: 3mm 3mm 3mm 3mm;
+		margin-header: 0;
+		margin-footer: 0;
+	}
+	table { width: 100%; border-spacing: 0px; padding: 0px; }
+	#Header_Left { width: 280px; font: bold 6pt Times, serif; }
+	#Header_Right { font: 6pt Times, serif; }
+	#Policy td { vertical-align: middle; text-align: center; }
+	#Logo_Left { width: 170px; }
+	#Logo_Right { width: 190px; }
+	#Policy_Title { font: 11pt Times, serif; vertical-align: top; }
+	.Var_Name_1 { width: 150px; font: 8pt Times, serif; }
+	.Var_Value_1 { font: bold 8pt Times, serif; }
+	.Var_Name_2 { width: 220px; font: 8pt Times, serif; }
+	.Var_Value_2 { font: bold 8pt Times, serif; text-align: center; }
+	#List { border-collapse: collapse; font: 8pt Times, serif; }
+		#List td { border: solid 1px black; text-align: center; padding: -1px 0px; }
+		#List td.Name { text-align: left; font-weight: bold; }
+		#List td.Money { font-weight: bold; }
+	#List_Header td { background-color: silver; }
+	#Premium { font: bold 7pt Times, serif; }
+	#Premium_Note { font: 6pt Times, serif; }
+	#Laws { font: 6pt Times, serif; text-align: justify; }
+	.Signature { font: 8pt Times, serif; }
+	#Date_Place { font: 8pt Times, serif; }
+	.Back_Text { font: 9pt Times, serif; }
+	#Regional td { vertical-align: top; font: 8pt Times, serif; }
+</style>
+
+<table>
+	<tr>
+		<td id="Header_Left">ООО РСО «ЕВРОИНС» +7 (495) 926-5155. Лицензия/License С № 395477<br/>214000, г. Смоленск, ул. Глинки, д. 7,  пом. 9</td>
+		<td id="Header_Right">Настоящий полис удостоверяет факт заключения договора страхования между ООО РСО «ЕВРОИНС» и страхователем на условиях "Правил комплексного страхования граждан, выезжающих с места постоянного проживания" ООО РСО «ЕВРОИНС» от 15.05.2013.</td>
+	</tr>
+</table>
+
+<table id="Policy">
+	<tr>
+		<td id="Logo_Left" rowspan="2"><img src="images/logo_euroins.png" width="170px" /></td>
+		<td id="Policy_Title"><b>МЕЖДУНАРОДНЫЙ СТРАХОВОЙ ПОЛИС<br/>INTERNATIONAL INSURANCE POLICY</b><br/>Номер полиса / Policy number <b><?php echo $PolicyNo; ?></b></td>
+		<td id="Logo_Right" rowspan="2"><img src="images/logo_SA.png" width="190px" /></td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<td width="50%">
+			<table>
+				<tr>
+					<td class="Var_Name_1">Страхователь / Policyholder</td>
+					<td class="Var_Value_1"><?php echo $Policy['insured_name']; ?></td>
+				</tr>
+				<tr>
+					<td class="Var_Name_1">Адрес / Address</td>
+					<td class="Var_Value_1"><?php echo $Policy['address']; ?></td>
+				</tr>
+				<tr>
+					<td class="Var_Name_1">Телефон / Phone number</td>
+					<td class="Var_Value_1"><?php echo $Policy['phone']; ?></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="Var_Name_1">Список застрахованных / List of Insured:</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td class="Var_Name_2">Срок страхования / Period of insurance</td>
+					<td class="Var_Value_2"><?php echo $Policy['date_in']; ?>&nbsp;–&nbsp;<?php echo $Policy['date_out']; ?></td>
+				</tr>
+				<tr>
+					<td class="Var_Name_2">Количество дней / Days of insurance</td>
+					<td class="Var_Value_2"><?php echo $Policy['totalDays']; ?></td>
+				</tr>
+				<tr>
+					<td class="Var_Name_2">Территория страхования / Valid in:</td>
+					<td class="Var_Value_2">
+						<?php 
+							for ($No = 0; $No <= 3; $No++) {
+								$country = $Policy['countryEng_' . $No];
+								if ($country != '') {
+									$use = true;
+									if ($No > 0) {
+										for ($No2 = ($No - 1); $No2 >= 0; $No2--) {
+											if ($country == $Policy['countryEng_' . $No2]) { 
+												$use = false;
+											}
+										}
+									}
+									if ($use) {
+										if ($No > 0) { echo ', '; }
+										echo $country;
+									}
+								}
+							}
+						?>
+					</td>
+				</tr>
+				<tr>
+					<td class="Var_Name_2">Программа страхования:</td>
+					<td class="Var_Value_2">1</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<table id="List">
+	<tr id="List_Header">
+		<td>&nbsp;№&nbsp;<br/>&nbsp;</td>
+		<td>Фамилия, Имя<br/>Surname, First name</td>
+		<td>Дата рождения<br/>Date of birth</td>
+		<td>Паспорт<br/>Passport</td>
+		<td>Страховые риски<br/>Insurance Risks</td>
+		<td>Дополнительные риски<br/>&nbsp;</td>
+		<td>Страховая сумма<br/>Sum Insured</td>
+	</tr>
+<?php
+	$Strike = '-----';
+	
+	function Medical($No) {
+		global $Policy;
+		return $Policy['totalHumans'] > $No ? 'Medical expenses' : '';
+	}
+	
+	function FullName($No) {
+		global $Strike, $Policy;
+		return $Policy['totalHumans'] > $No ? $Policy['last_name_'.$No]."&nbsp;".$Policy['first_name_'.$No] : $Strike;
+	}
+	
+	function Risks($No) {
+		global $Strike, $Policy;
+		if ($Policy['totalHumans'] > $No) {
+			return $Policy['risk_'.$No] <> 'Без дополнительных рисков' ? 'Спорт / Sport' : $Strike;
+		}
+	}
+	
+	for ($No = 0; $No <= 4; $No++) {
+		echo '<tr><td>'.($No + 1).'</td><td class="Name">'.FullName($No).'</td><td>'.$Policy['birthday_'.$No].'</td><td>'.$Policy['passport_number_'.$No].'</td><td>'.Medical($No).'</td><td>'.Risks($No).'</td><td class="Money">'. (($No < $Policy['totalHumans'])?$Policy['summa_0']:'') .'</td></tr>';
+	}
+?>
+</table>
+
+<table style="border-bottom: 1px solid black;">
+	<tr>
+		<td id="Premium" colspan="2">Страховая премия */ Insurance Premium: <?php echo $Policy['cost']; ?> руб.</td>
+		<td rowspan="5" align="center"><img src="images/stamp.jpg" width="170px"/></td>
+	</tr>
+	<tr>
+		<td id="Laws" colspan="2">Настоящим в порядке ч. 2 ст. 434 ГК РФ подтверждаю достижение соглашения сторон о признании договора страхования заключенным в письменной форме посредством электронной связи. Действуя от своего имени и в своем интересе как страхователь, подтверждаю, что надлежащим образом ознакомлен и согласен с текстом и условиями «Правил комплексного страхования граждан, выезжающих с места постоянного проживания», утв. 15.05.2013 г., адрес в Интернете: http://euro-ins.ru/files/pravila_vzr.doc, в подтверждение чего заключаю настоящий договор, текст указанных правил страхования получил. Руководствуясь ч. 2 ст. 160 ГК РФ, подтверждаю достижение соглашения сторон о допустимости использования факсимильного воспроизведения подписей и оттисков печатей с помощью средств копирования. В соответствии с ФЗ «О персональных данных» от 27.07.2006 г. № 152-ФЗ предоставляю свое согласие на обработку персональных данных, включая все операции с персональными данными, предусмотренные п. 3 ст. 3 Закона.</td>
+	</tr>
+	<tr>
+		<td class="Signature">Подпись&nbsp;Страхователя&nbsp;/<br/>Signature&nbsp;of&nbsp;Policyholder</td>
+		<td class="Signature" width="200px">Подпись&nbsp;представителя<br/>Страховщика&nbsp;/&nbsp;Signature&nbsp;of&nbsp;Insurer</td>
+	</tr>
+	<tr>
+		<td id="Date_Place" colspan="2">Дата и место выдачи / Date and place of issue: <b><?php echo date('d.m.Y'); ?>&nbsp;Smolensk</b></td>
+	</tr>
+	<tr>
+		<td id="Premium_Note" colspan="2">* Оплачена единовременно. Факт оплаты страховой премии Страхователем является подтверждением согласия с условиями договора</td>
+	</tr>
+</table>
+
+<p class="Back_Text"><b>Dear Doctor</b>, The Holder of this Traveler’s Health insurance. Policy is covered by SMILE Assistance. Before providing medical help please contact our 24-hour Alarm Center in <b>Moscow</b>, tel.: +7 (495) 560 48 81 or the nearest SMILE Assistance office listed in the policy</p>
+<p class="Back_Text"><b><font color="red">ВНИМАНИЕ!</font></b> Если во время вашей поездки вы заболеете или с Вами произойдет несчастный случай, вам необходимо ОБЯЗАТЕЛЬНО связаться с оператором круглосуточного диспетчерского центра сервисной компании наиболее удобным для Вас способом с сервисной компанией <b>по телефонам: Тел: +7 (495) 560 48 81, Факс: +7 (495) 225 85 00</b></p>
+<span class="Back_Text"><b>Ваш звонок или СМС сообщение примет русскоговорящий оператор, которому необходимо сообщить:</b>
+	<ul class="Back_Text" style="margin: 0px;">
+		<li>Имя и фамилию Застрахованного</li>
+		<li>Название страховой компании</li>
+		<li>Номер страхового полиса</li>
+		<li>Ваше местонахождение</li>
+		<li>Номер контактного телефона для обратной связи</li>
+		<li>Описание обстоятельств и характер требуемой помощи</li>
+	</ul>
+</span>
+<p class="Back_Text" align="center"><b>ВНИМАНИЕ!</b> Если во время поездки Вы самостоятельно обратились за медицинской помощью, Страховщик вправе ограничить страховую выплату суммой не превышающей 200 у.е. в валюте договора страхования согласно п. 14.7 правил страхования.</p>
+
+<p class="Back_Text" align="center"><i>Полный список региональных представительств сервисной компании SMILE Assistance</i>
+<table id="Regional">
+	<tr>
+		<td>УКРАИНА<br/>Тел: +380 44 287 88 70<br/><br/>АВСТРИЯ<br/>Тел: +43 1 227 87 146<br/>Факс: +43 1 227 87 200<br/><br/>ФРАНЦИЯ<br/>Тел: +33 1 74 31 10 41<br/>Факс: +33 1 74 31 10 00<br/><br/>ГЕРМАНИЯ<br/>Тел: +49 (0) 221 5694 475<br/>Факс: +49 (0) 221 5694 200<br/><br/>ИТАЛИЯ<br/>Тел: +39 026 467 26 77<br/>Факс: +39 026 467 24 00<br/><br/>ИСПАНИЯ<br/>Тел: +34 93 306 34 75<br/>Факс: +34 93 306 34 99</td>
+		<td>ЕГИПЕТ<br/>Тел: +20 22 461 88 21<br/>Факс: +20 22 461 85 01<br/><br/>ИЗРАИЛЬ<br/>Тел: +972 3 754 12 76<br/>Факс: +972 3 754 11 00<br/><br/>ГРЕЦИЯ<br/>Тел: +30 210 727 92 12<br/>Факс: +30 210 727 92 00<br/><br/>США<br/>Тел: +1 567 26 26 000<br/>Факс: +1 305 913 13 01<br/><br/>ТАЙЛАНД<br/>Тел: +66 2 625 31 77<br/>Факс: +66 2 625 30 00<br/><br/>ТУРЦИЯ<br/>Тел: +90 312 295 62 43<br/>Факс: +90 312 295 62 00</td>
+		<td>БОЛГАРИЯ<br/>Тел: +359 2 805 73 15<br/><br/>ЛИТВА<br/>Тел: +370 605 442 20<br/><br/>ЧЕХИЯ<br/>Тел: +420 222 191 960<br/>Факс: +420 222 191 505<br/><br/>ПОЛЬША<br/>Тел: +48 22 490 67 56<br/><br/>ВЕЛИКОБРИТАНИЯ<br/>Тел: +44 20 351 944 94<br/><br/>РУМЫНИЯ<br/>Тел: +40 31 780 00 97<br/><br/>СЛОВАКИЯ<br/>Тел: +421 2 330 026 13</td>
+	</tr>
+</table></p>
+
+<p class="Back_Text" align="center"><b>Основной телефон для связи с застрахованными +7 (495) 560 48 81</b></p>
+<p class="Back_Text">Также выше представлены номера операторов местных телефонных линий с переадресацией на наш контактный центр. Переадресация проходит через все указанные номера телефонов, кроме России, Украины, Литвы, Латвии, Польши. В этих странах у нас физические офисы.</p>
