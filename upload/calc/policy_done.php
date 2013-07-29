@@ -1,7 +1,6 @@
 <?php
 
-	define('IN_SUBDREAMER', true);
-	include('../includes/core.php');
+	include('../wp-load.php');
 
 	include('policy_config.php');
 	include('policy_db.php');

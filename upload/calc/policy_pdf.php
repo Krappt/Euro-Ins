@@ -1,16 +1,16 @@
 <?php
 	global $Policy, $PolicyNo, $SendMail;
 
-	// Çàãðóæàåì ìàêåò ñ îáðàáîòêîé ïåðåìåííûõ PHP
+	// Ð—Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÐ¼ Ð¼Ð°ÐºÐµÑ‚ Ñ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¾Ð¹ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ñ… PHP
 	ob_start();
 	include("policy.html");
 	$html = ob_get_contents();
 	ob_end_clean();
 	
-	// Ïîäêëþ÷àåì áèáëèîòåêó âûãðóçêè â PDF
+	// ÐŸÐ¾Ð´ÐºÐ»ÑŽÑ‡Ð°ÐµÐ¼ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÑƒ Ð²Ñ‹Ð³Ñ€ÑƒÐ·ÐºÐ¸ Ð² PDF
 	include("../includes/mPDF/mpdf.php");
 	
-	// Ôîðìèðóåì ïîëèñ
+	// Ð¤Ð¾Ñ€Ð¼Ð¸Ñ€ÑƒÐµÐ¼ Ð¿Ð¾Ð»Ð¸Ñ
 	$mpdf=new mPDF('cp1251', 'A4'); 
 	$mpdf->WriteHTML($html);
 

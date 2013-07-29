@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <base href="<?php echo "http://" . $_SERVER["SERVER_NAME"] . "/calc/"; ?>" />
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" type="text/css" href="calc.css">
 <?php
 	if (isset($_GET['PartnerID']) and file_exists('calc'.$_GET['PartnerID'].'.css')) { 
 		echo '<link rel="stylesheet" type="text/css" href="calc'.$_GET['PartnerID'].'.css">'.PHP_EOL;
 	}
 ?>
-    <title>Заказ полиса</title>
+    <title>Р—Р°РєР°Р· РїРѕР»РёСЃР°</title>
     <script language='javascript'>
         var globaldate = 0;
         realtime =<?php echo time();?>;
@@ -83,8 +83,8 @@
 	echo PHP_EOL;
 ?>
         <div class="calc_page1_head calc_subpage">
-            <h4>Купить Полис для выезжающих за рубеж</h4>
-            <span>Предлагаем Вам рассчитать стоимость Полиса для выезжающих за рубеж и приобрести его онлайн всего за 5 минут, не выходя из дома</span>
+            <h4>РљСѓРїРёС‚СЊ РџРѕР»РёСЃ РґР»СЏ РІС‹РµР·Р¶Р°СЋС‰РёС… Р·Р° СЂСѓР±РµР¶</h4>
+            <span>РџСЂРµРґР»Р°РіР°РµРј Р’Р°Рј СЂР°СЃСЃС‡РёС‚Р°С‚СЊ СЃС‚РѕРёРјРѕСЃС‚СЊ РџРѕР»РёСЃР° РґР»СЏ РІС‹РµР·Р¶Р°СЋС‰РёС… Р·Р° СЂСѓР±РµР¶ Рё РїСЂРёРѕР±СЂРµСЃС‚Рё РµРіРѕ РѕРЅР»Р°Р№РЅ РІСЃРµРіРѕ Р·Р° 5 РјРёРЅСѓС‚, РЅРµ РІС‹С…РѕРґСЏ РёР· РґРѕРјР°</span>
         </div>
         <div class="calc_page1_top calc_subpage">
             <div class="calc left">
@@ -92,18 +92,18 @@
 
                     <div class="calc list program_list" onclick="listsclick(this);">
                         <input class="calc field select_text active program" type="text" name="program"
-                               title="программа страхования" value="Стандарт (однократный въезд)" readonly="readonly"
+                               title="РїСЂРѕРіСЂР°РјРјР° СЃС‚СЂР°С…РѕРІР°РЅРёСЏ" value="РЎС‚Р°РЅРґР°СЂС‚ (РѕРґРЅРѕРєСЂР°С‚РЅС‹Р№ РІСЉРµР·Рґ)" readonly="readonly"
                                onclick="inputclick(this);" onblur="inputblur(this);"/>
                         <ul>
-                            <li onmousedown="clickli(this);"><span>Стандарт</span> (однократный въезд)</li>
-                            <li onmousedown="clickli(this);">Мульти <span>30</span> дней</li>
-                            <li onmousedown="clickli(this);">Мульти <span>60</span> дней</li>
-                            <li onmousedown="clickli(this);">Мульти <span>90</span> дней</li>
-                            <li onmousedown="clickli(this);" class="lastchild">Мульти <span>180</span> дней</li>
+                            <li onmousedown="clickli(this);"><span>РЎС‚Р°РЅРґР°СЂС‚</span> (РѕРґРЅРѕРєСЂР°С‚РЅС‹Р№ РІСЉРµР·Рґ)</li>
+                            <li onmousedown="clickli(this);">РњСѓР»СЊС‚Рё <span>30</span> РґРЅРµР№</li>
+                            <li onmousedown="clickli(this);">РњСѓР»СЊС‚Рё <span>60</span> РґРЅРµР№</li>
+                            <li onmousedown="clickli(this);">РњСѓР»СЊС‚Рё <span>90</span> РґРЅРµР№</li>
+                            <li onmousedown="clickli(this);" class="lastchild">РњСѓР»СЊС‚Рё <span>180</span> РґРЅРµР№</li>
                         </ul>
                     </div>
-                    <span class="calc subtext">выберите программу страхования</span>
-                    <a class="calc link" id="bird_to_page2">что включает данная программа?</a>
+                    <span class="calc subtext">РІС‹Р±РµСЂРёС‚Рµ РїСЂРѕРіСЂР°РјРјСѓ СЃС‚СЂР°С…РѕРІР°РЅРёСЏ</span>
+                    <a class="calc link" id="bird_to_page2">С‡С‚Рѕ РІРєР»СЋС‡Р°РµС‚ РґР°РЅРЅР°СЏ РїСЂРѕРіСЂР°РјРјР°?</a>
                 </div>
                 <div class="calc line country">
                     <div id="country_wrap">
@@ -111,27 +111,27 @@
                             <div class="calc list country_list" onclick="listsclick(this);">
                                 <div class="calc error"></div>
                                 <input class="calc field select_text country input_text unactive" type="text"
-                                       name="country_0" title="страна пребывания" value="страна пребывания"
+                                       name="country_0" title="СЃС‚СЂР°РЅР° РїСЂРµР±С‹РІР°РЅРёСЏ" value="СЃС‚СЂР°РЅР° РїСЂРµР±С‹РІР°РЅРёСЏ"
                                        onkeyup="comparisontext(this);" onfocus="inputfocus(this);"
                                        onblur="inputblur(this);" onclick="inputclick(this);"/>
                                 <input type="hidden" name="countryEng_0"/>
                                 <ul>
-                                    <div class="cyrillic">кириллицей</div>
+                                    <div class="cyrillic">РєРёСЂРёР»Р»РёС†РµР№</div>
                                     <li class="lastchild"></li>
                                 </ul>
 
                             </div>
 
-                            <span class="calc subtext">например:  Австрия, Мексика, Япония</span>
+                            <span class="calc subtext">РЅР°РїСЂРёРјРµСЂ:  РђРІСЃС‚СЂРёСЏ, РњРµРєСЃРёРєР°, РЇРїРѕРЅРёСЏ</span>
                         </div>
                     </div>
-                    <a class="calc link" id="new_country">добавить ещё одну страну</a>
+                    <a class="calc link" id="new_country">РґРѕР±Р°РІРёС‚СЊ РµС‰С‘ РѕРґРЅСѓ СЃС‚СЂР°РЅСѓ</a>
                 </div>
             </div>
             <div class="calc right">
                 <div class="calc line dates">
                     <div class="calc error date0"></div>
-                    <input type="hidden" name="date_in" id="date_in_id" title="начало действия полиса"/>
+                    <input type="hidden" name="date_in" id="date_in_id" title="РЅР°С‡Р°Р»Рѕ РґРµР№СЃС‚РІРёСЏ РїРѕР»РёСЃР°"/>
                     <div class="calc dateSplit dateSplitInDay dateSplitTravelDay">
                         <div class="dateSplitDay">
                             <select class="dateSplitDays" onchange="onDateChange(this)"></select>
@@ -142,12 +142,12 @@
                         <div class="dateSplitYear">
                             <select class="dateSplitYears" onchange="onDateChange(this)"></select>
                         </div>
-                        <span class="calc subtextDate">начало действия полиса</span>
+                        <span class="calc subtextDate">РЅР°С‡Р°Р»Рѕ РґРµР№СЃС‚РІРёСЏ РїРѕР»РёСЃР°</span>
                     </div>
 
 
                     <div class="calc error date"></div>
-                    <input type="hidden" name="date_out" id="date_out_id" title="окончание действия полиса"/>
+                    <input type="hidden" name="date_out" id="date_out_id" title="РѕРєРѕРЅС‡Р°РЅРёРµ РґРµР№СЃС‚РІРёСЏ РїРѕР»РёСЃР°"/>
                     <div class="calc dateSplit dateSplitOutDay dateSplitTravelDay">
                         <div class="dateSplitDay">
                             <select class="dateSplitDays" onchange="onDateChange(this)"></select>
@@ -158,17 +158,17 @@
                         <div class="dateSplitYear">
                             <select class="dateSplitYears" onchange="onDateChange(this)"></select>
                         </div>
-                        <span class="calc subtextDate">окончание действия полиса</span>
-                        <span class="calc standart_program subtext calcdays">срок действия: <span id="calc_days">0</span> дней</span>
+                        <span class="calc subtextDate">РѕРєРѕРЅС‡Р°РЅРёРµ РґРµР№СЃС‚РІРёСЏ РїРѕР»РёСЃР°</span>
+                        <span class="calc standart_program subtext calcdays">СЃСЂРѕРє РґРµР№СЃС‚РІРёСЏ: <span id="calc_days">0</span> РґРЅРµР№</span>
                     </div>
 
 
 
 
                     <div id="multi_program">
-                        <div>«Мульти <span class="multi_val"></span>» - годовая программа страхования, покрывающая
-                            неограниченное количество выездов, при которых общая продолжительность поездок не должна
-                            превышать <span class="multi_val"></span> дней
+                        <div>В«РњСѓР»СЊС‚Рё <span class="multi_val"></span>В» - РіРѕРґРѕРІР°СЏ РїСЂРѕРіСЂР°РјРјР° СЃС‚СЂР°С…РѕРІР°РЅРёСЏ, РїРѕРєСЂС‹РІР°СЋС‰Р°СЏ
+                            РЅРµРѕРіСЂР°РЅРёС‡РµРЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІС‹РµР·РґРѕРІ, РїСЂРё РєРѕС‚РѕСЂС‹С… РѕР±С‰Р°СЏ РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РїРѕРµР·РґРѕРє РЅРµ РґРѕР»Р¶РЅР°
+                            РїСЂРµРІС‹С€Р°С‚СЊ <span class="multi_val"></span> РґРЅРµР№
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                         <div class="calc list lastname_list" onclick="listsclick(this);">
                             <div class="calc error"></div>
                             <input class="calc field input_text unactive names lastname" type="text"
-                                   title="фамилия (лат.)" name="last_name_0" value="фамилия (лат.)" onfocus="inputfocus(this);"
+                                   title="С„Р°РјРёР»РёСЏ (Р»Р°С‚.)" name="last_name_0" value="С„Р°РјРёР»РёСЏ (Р»Р°С‚.)" onfocus="inputfocus(this);"
                                    onblur="inputblur(this);" onclick="inputclick(this);"/>
 
                         </div>
@@ -190,7 +190,7 @@
                         <div class="calc list firstname_list" onclick="listsclick(this);">
                             <div class="calc error"></div>
                             <input class="calc field input_text second unactive names firstname" type="text"
-                                   title="имя (лат.)" name="first_name_0" value="имя (лат.)" onfocus="inputfocus(this);"
+                                   title="РёРјСЏ (Р»Р°С‚.)" name="first_name_0" value="РёРјСЏ (Р»Р°С‚.)" onfocus="inputfocus(this);"
                                    onblur="inputblur(this);" onclick="inputclick(this);"/>
 
                         </div>
@@ -214,30 +214,30 @@
                                     </select>
                                 </div>
                             </div>
-                            <span class="calc subtextDate">дата рождения</span>
+                            <span class="calc subtextDate">РґР°С‚Р° СЂРѕР¶РґРµРЅРёСЏ</span>
                         </div>
 
                     </div>
                     <div class="calc right">
                         <div class="calc list risk_list" onclick="listsclick(this);">
                             <input class="calc field select_text active risk" type="text" name="risk_0"
-                                                           title="риски" value="Без дополнительных рисков" readonly="readonly"
+                                                           title="СЂРёСЃРєРё" value="Р‘РµР· РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… СЂРёСЃРєРѕРІ" readonly="readonly"
                                                            onclick="inputclick(this);" onblur="inputblur(this);"/>
                             <ul>
-                                <li onmousedown="clickli(this);">Без дополнительных рисков</li>
-                                <li class="lastchild" onmousedown="clickli(this);">Спорт / Активный отдых</li>
+                                <li onmousedown="clickli(this);">Р‘РµР· РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… СЂРёСЃРєРѕРІ</li>
+                                <li class="lastchild" onmousedown="clickli(this);">РЎРїРѕСЂС‚ / РђРєС‚РёРІРЅС‹Р№ РѕС‚РґС‹С…</li>
                             </ul>
                         </div>
                         <div class="calc list passport" onclick="listsclick(this);">
                              <div class="calc error"></div>
                              <input class="calc field input_text second unactive passport_number" type="text"
-                                    title="номер загранпаспорта" name="passport_number_0" value="номер загранпаспорта" onfocus="inputfocus(this);"
+                                    title="РЅРѕРјРµСЂ Р·Р°РіСЂР°РЅРїР°СЃРїРѕСЂС‚Р°" name="passport_number_0" value="РЅРѕРјРµСЂ Р·Р°РіСЂР°РЅРїР°СЃРїРѕСЂС‚Р°" onfocus="inputfocus(this);"
                                     onblur="inputblur(this);" onclick="inputclick(this);"/>
                         </div>
                         <div class="calc list sum_list" onclick="listsclick(this);">
                             <div class="calc error"></div>
                             <input class="calc field summa select_text second unactive" type="text" name="summa_0"
-                                   title="страховая сумма" value="страховая сумма" readonly="readonly"
+                                   title="СЃС‚СЂР°С…РѕРІР°СЏ СЃСѓРјРјР°" value="СЃС‚СЂР°С…РѕРІР°СЏ СЃСѓРјРјР°" readonly="readonly"
                                    onclick="inputclick(this);" onblur="inputblur(this);"/>
                             <ul class="listSum"></ul>
                         </div>
@@ -245,32 +245,32 @@
                     </div>
                 </div>
             </div>
-            <div class="calc addhumanline"><a class="calc link human" id="new_human">добавить путешественника</a></div>
+            <div class="calc addhumanline"><a class="calc link human" id="new_human">РґРѕР±Р°РІРёС‚СЊ РїСѓС‚РµС€РµСЃС‚РІРµРЅРЅРёРєР°</a></div>
         </div>
         <div class="calc_page1_bottom calc_subpage">
             <div class="calc error all all1"></div>
-            <input class="calc button" type="button" id="calculate" value="Рассчитать"/>
+            <input class="calc button" type="button" id="calculate" value="Р Р°СЃСЃС‡РёС‚Р°С‚СЊ"/>
         </div>
 </div>
 <div class="calc_page2" style="display:none">
     <div class="calc_page2_head calc_subpage">
-        <h4>Заказать Полис для выезжающих за рубеж</h4>
-        <span>Предлагаем Вам рассчитать стоимость Полиса для выезжающих за рубеж и приобрести его онлайн всего за 5 минут, не выходя из дома</span>
+        <h4>Р—Р°РєР°Р·Р°С‚СЊ РџРѕР»РёСЃ РґР»СЏ РІС‹РµР·Р¶Р°СЋС‰РёС… Р·Р° СЂСѓР±РµР¶</h4>
+        <span>РџСЂРµРґР»Р°РіР°РµРј Р’Р°Рј СЂР°СЃСЃС‡РёС‚Р°С‚СЊ СЃС‚РѕРёРјРѕСЃС‚СЊ РџРѕР»РёСЃР° РґР»СЏ РІС‹РµР·Р¶Р°СЋС‰РёС… Р·Р° СЂСѓР±РµР¶ Рё РїСЂРёРѕР±СЂРµСЃС‚Рё РµРіРѕ РѕРЅР»Р°Р№РЅ РІСЃРµРіРѕ Р·Р° 5 РјРёРЅСѓС‚, РЅРµ РІС‹С…РѕРґСЏ РёР· РґРѕРјР°</span>
     </div>
     <div class="calc_page2_center calc_subpage">
         <div class="calc center">
-            <p>Страховые случаи по Программам Стандарт и Мульти:</p>
+            <p>РЎС‚СЂР°С…РѕРІС‹Рµ СЃР»СѓС‡Р°Рё РїРѕ РџСЂРѕРіСЂР°РјРјР°Рј РЎС‚Р°РЅРґР°СЂС‚ Рё РњСѓР»СЊС‚Рё:</p>
 
-            <p>1.МЕДИЦИНСКИЕ УСЛУГИ И ОПЛАТА МЕДИЦИНСКИХ РАСХОДОВ (АМБУЛАТОРНОЕ И СТАЦИОНАРНОЕ ЛЕЧЕНИЕ) <br/>
-                2. ЭКСТРЕННАЯ СТОМАТОЛОГИЧЕСКАЯ ПОМОЩЬ (ОТ 100 ДО 200 У.Е.) <br/>
-                3. ОРГАНИЗАЦИЯ И ОПЛАТА МЕДИЦИНСКОЙ ТРАНСПОРТИРОВКИ, РЕПАТРИАЦИЯ</p>
+            <p>1.РњР•Р”РР¦РРќРЎРљРР• РЈРЎР›РЈР“Р Р РћРџР›РђРўРђ РњР•Р”РР¦РРќРЎРљРРҐ Р РђРЎРҐРћР”РћР’ (РђРњР‘РЈР›РђРўРћР РќРћР• Р РЎРўРђР¦РРћРќРђР РќРћР• Р›Р•Р§Р•РќРР•) <br/>
+                2. Р­РљРЎРўР Р•РќРќРђРЇ РЎРўРћРњРђРўРћР›РћР“РР§Р•РЎРљРђРЇ РџРћРњРћР©Р¬ (РћРў 100 Р”Рћ 200 РЈ.Р•.) <br/>
+                3. РћР Р“РђРќРР—РђР¦РРЇ Р РћРџР›РђРўРђ РњР•Р”РР¦РРќРЎРљРћР™ РўР РђРќРЎРџРћР РўРР РћР’РљР, Р Р•РџРђРўР РРђР¦РРЇ</p>
             <hr/>
-            <p>Multi» - годовая программа страхования, покрывающая неограниченное количество выездов, при которой общая
-                продолжительность поездок не должна превышать указанное количество дней - 30/45/60/90/180.</p>
+            <p>MultiВ» - РіРѕРґРѕРІР°СЏ РїСЂРѕРіСЂР°РјРјР° СЃС‚СЂР°С…РѕРІР°РЅРёСЏ, РїРѕРєСЂС‹РІР°СЋС‰Р°СЏ РЅРµРѕРіСЂР°РЅРёС‡РµРЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІС‹РµР·РґРѕРІ, РїСЂРё РєРѕС‚РѕСЂРѕР№ РѕР±С‰Р°СЏ
+                РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РїРѕРµР·РґРѕРє РЅРµ РґРѕР»Р¶РЅР° РїСЂРµРІС‹С€Р°С‚СЊ СѓРєР°Р·Р°РЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРЅРµР№ - 30/45/60/90/180.</p>
 
-            <p>Например, Клиент приобрёл полис по программе "Multi" 90, съездил на отдых на 10 дней, затем в
-                командировку, продолжительность которой 95 дней. Страховая защита не распространится на последние 15
-                дней, т.к. указанное в программе количество дней - 90, а Застрахованный провел в поездках -105 дней.</p>
+            <p>РќР°РїСЂРёРјРµСЂ, РљР»РёРµРЅС‚ РїСЂРёРѕР±СЂС‘Р» РїРѕР»РёСЃ РїРѕ РїСЂРѕРіСЂР°РјРјРµ "Multi" 90, СЃСЉРµР·РґРёР» РЅР° РѕС‚РґС‹С… РЅР° 10 РґРЅРµР№, Р·Р°С‚РµРј РІ
+                РєРѕРјР°РЅРґРёСЂРѕРІРєСѓ, РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РєРѕС‚РѕСЂРѕР№ 95 РґРЅРµР№. РЎС‚СЂР°С…РѕРІР°СЏ Р·Р°С‰РёС‚Р° РЅРµ СЂР°СЃРїСЂРѕСЃС‚СЂР°РЅРёС‚СЃСЏ РЅР° РїРѕСЃР»РµРґРЅРёРµ 15
+                РґРЅРµР№, С‚.Рє. СѓРєР°Р·Р°РЅРЅРѕРµ РІ РїСЂРѕРіСЂР°РјРјРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРЅРµР№ - 90, Р° Р—Р°СЃС‚СЂР°С…РѕРІР°РЅРЅС‹Р№ РїСЂРѕРІРµР» РІ РїРѕРµР·РґРєР°С… -105 РґРЅРµР№.</p>
 
             <div class="bird">
                 <a id="bird_to_page1"></a>
@@ -282,22 +282,22 @@
     <div class="calc_page3_top">
         <div class="calc_page3_block">
             <div class="calc value country"></div>
-            <div class="calc title">страна пребывания</div>
+            <div class="calc title">СЃС‚СЂР°РЅР° РїСЂРµР±С‹РІР°РЅРёСЏ</div>
         </div>
         <div class="calc_page3_block">
             <div class="calc value start"></div>
-            <div class="calc title">начало действия полиса</div>
+            <div class="calc title">РЅР°С‡Р°Р»Рѕ РґРµР№СЃС‚РІРёСЏ РїРѕР»РёСЃР°</div>
         </div>
         <div class="calc_page3_block">
             <div class="calc value end"></div>
-            <div class="calc title">окончание действия полиса</div>
+            <div class="calc title">РѕРєРѕРЅС‡Р°РЅРёРµ РґРµР№СЃС‚РІРёСЏ РїРѕР»РёСЃР°</div>
         </div>
         <div class="calc_page3_block">
-            <div class="calc value"><span class="calc days"></span> дней</div>
-            <div class="calc title">количество дней</div>
+            <div class="calc value"><span class="calc days"></span> РґРЅРµР№</div>
+            <div class="calc title">РєРѕР»РёС‡РµСЃС‚РІРѕ РґРЅРµР№</div>
         </div>
-        <div class="calc_page3_top_subinfo" style=" display:none">Полис будет действовать на всей территории Европы и
-            стран Шенгенского соглашения
+        <div class="calc_page3_top_subinfo" style=" display:none">РџРѕР»РёСЃ Р±СѓРґРµС‚ РґРµР№СЃС‚РІРѕРІР°С‚СЊ РЅР° РІСЃРµР№ С‚РµСЂСЂРёС‚РѕСЂРёРё Р•РІСЂРѕРїС‹ Рё
+            СЃС‚СЂР°РЅ РЁРµРЅРіРµРЅСЃРєРѕРіРѕ СЃРѕРіР»Р°С€РµРЅРёСЏ
         </div>
     </div>
     <div class="calc_page3_center">
@@ -305,15 +305,15 @@
             <div class="calc_subpage_human first" id="subpage_human_0">
                 <div class="calc_page3_block human_block left">
                     <div class="calc value name"></div>
-                    <div class="calc title">застрахованный, <span class="calc human_age"></span> год</div>
+                    <div class="calc title">Р·Р°СЃС‚СЂР°С…РѕРІР°РЅРЅС‹Р№, <span class="calc human_age"></span> РіРѕРґ</div>
                 </div>
                 <div class="calc_page3_block human_block">
                     <div class="calc value summa"></div>
-                    <div class="calc title">страховая сумма</div>
+                    <div class="calc title">СЃС‚СЂР°С…РѕРІР°СЏ СЃСѓРјРјР°</div>
                 </div>
                 <div class="calc_page3_block human_block">
                     <div class="calc value risks"></div>
-                    <div class="calc title">род занятий во время поездки</div>
+                    <div class="calc title">СЂРѕРґ Р·Р°РЅСЏС‚РёР№ РІРѕ РІСЂРµРјСЏ РїРѕРµР·РґРєРё</div>
                 </div>
             </div>
         </div>
@@ -323,27 +323,27 @@
                 <input type="hidden" id="totalHumansInput" name="totalHumans"/>
                 <input type="hidden" id="totalDaysInput" name="totalDays"/>
                 <input type="hidden" id="rateInput" name="rate"/>
-                <div class="calc value"><span id="totalsumm"><!--30 000,00--></span> руб.</div>
-                <div class="calc title">стоимость полиса</div>
+                <div class="calc value"><span id="totalsumm"><!--30 000,00--></span> СЂСѓР±.</div>
+                <div class="calc title">СЃС‚РѕРёРјРѕСЃС‚СЊ РїРѕР»РёСЃР°</div>
             </div>
-            <div class="calc_page3_center_subinfo">Электронный полис будет выписан в формате PDF</div>
+            <div class="calc_page3_center_subinfo">Р­Р»РµРєС‚СЂРѕРЅРЅС‹Р№ РїРѕР»РёСЃ Р±СѓРґРµС‚ РІС‹РїРёСЃР°РЅ РІ С„РѕСЂРјР°С‚Рµ PDF</div>
         </div>
     </div>
     <div class="calc_page3_bottom" id="calc_page3_subpage1" style=" display:block">
         <div class="calc_page3_bottom_line">
-            <div class="calc page3_title address">Адрес застрахованного:</div>
-            <input class="calc field input_text unactive address" type="text" title="Адрес фактического проживания"
-                   name="address" value="Адрес фактического проживания" onfocus="inputfocus(this);"
+            <div class="calc page3_title address">РђРґСЂРµСЃ Р·Р°СЃС‚СЂР°С…РѕРІР°РЅРЅРѕРіРѕ:</div>
+            <input class="calc field input_text unactive address" type="text" title="РђРґСЂРµСЃ С„Р°РєС‚РёС‡РµСЃРєРѕРіРѕ РїСЂРѕР¶РёРІР°РЅРёСЏ"
+                   name="address" value="РђРґСЂРµСЃ С„Р°РєС‚РёС‡РµСЃРєРѕРіРѕ РїСЂРѕР¶РёРІР°РЅРёСЏ" onfocus="inputfocus(this);"
                    onblur="inputblur(this);" onclick="inputclick(this);"/>
         </div>
         <div class="calc_page3_bottom_line">
             <div class="calc left_info">
-                Данные лица, оплачивающего страховку
+                Р”Р°РЅРЅС‹Рµ Р»РёС†Р°, РѕРїР»Р°С‡РёРІР°СЋС‰РµРіРѕ СЃС‚СЂР°С…РѕРІРєСѓ
             </div>
             <div class="calc right_info">
                 <div class="calc list insured_list" onclick="listsclick(this);">
                     <div class="calc error"></div>
-                    <input class="calc field input_text active insured" type="text" title="фамилия и имя (лат.)"
+                    <input class="calc field input_text active insured" type="text" title="С„Р°РјРёР»РёСЏ Рё РёРјСЏ (Р»Р°С‚.)"
                            name="insured_name" value="" onfocus="inputfocus(this);" onblur="inputblur(this);"
                            onclick="inputclick(this);" style=" text-align:left"/>
 
@@ -353,17 +353,17 @@
         </div>
         <div class="calc_page3_bottom_line">
             <div class="calc left_info">
-                Необходимо указать Ваш телефон и e-mail, на который Вы получите полис страхования
+                РќРµРѕР±С…РѕРґРёРјРѕ СѓРєР°Р·Р°С‚СЊ Р’Р°С€ С‚РµР»РµС„РѕРЅ Рё e-mail, РЅР° РєРѕС‚РѕСЂС‹Р№ Р’С‹ РїРѕР»СѓС‡РёС‚Рµ РїРѕР»РёСЃ СЃС‚СЂР°С…РѕРІР°РЅРёСЏ
             </div>
             <div class="calc right_info">
                 <div class="calc error email"></div>
-                <input class="calc field input_text unactive email" type="text" title="электронная почта" name="e-mail"
-                       value="электронная почта" onfocus="inputfocus(this);" onblur="inputblur(this);"
+                <input class="calc field input_text unactive email" type="text" title="СЌР»РµРєС‚СЂРѕРЅРЅР°СЏ РїРѕС‡С‚Р°" name="e-mail"
+                       value="СЌР»РµРєС‚СЂРѕРЅРЅР°СЏ РїРѕС‡С‚Р°" onfocus="inputfocus(this);" onblur="inputblur(this);"
                        onclick="inputclick(this);"/>
 
                 <div class="calc error phone"></div>
-                <input class="calc field input_text unactive phone" type="text" title="ваш телефон" name="phone"
-                       value="ваш телефон" onfocus="inputfocus(this);" onblur="inputblur(this);"
+                <input class="calc field input_text unactive phone" type="text" title="РІР°С€ С‚РµР»РµС„РѕРЅ" name="phone"
+                       value="РІР°С€ С‚РµР»РµС„РѕРЅ" onfocus="inputfocus(this);" onblur="inputblur(this);"
                        onclick="inputclick(this);"/>
 
 
@@ -372,32 +372,32 @@
 
         <div class="calc_page3_bottom_line">
             <div class="calc error all"></div>
-            <input class="calc button" type="button" id="issue" value="Оформить"/>
+            <input class="calc button" type="button" id="issue" value="РћС„РѕСЂРјРёС‚СЊ"/>
             </form>
 
         </div>
     </div>
     <div class="calc_page3_bottom" id="calc_page3_subpage2" style="display:none">
-        <div class="calc_page3_bottom_head">Заказать Полис для выезжающих за рубеж</div>
-        <div class="calc agreement left">Ознакомьтесь, пожалуйста, с текстом Пользовательского соглашения <a onclick="$('#agreement_block').show();">здесь</a> и поставьте «галочку» в поле для принятия условий соглашения</div>
+        <div class="calc_page3_bottom_head">Р—Р°РєР°Р·Р°С‚СЊ РџРѕР»РёСЃ РґР»СЏ РІС‹РµР·Р¶Р°СЋС‰РёС… Р·Р° СЂСѓР±РµР¶</div>
+        <div class="calc agreement left">РћР·РЅР°РєРѕРјСЊС‚РµСЃСЊ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, СЃ С‚РµРєСЃС‚РѕРј РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ СЃРѕРіР»Р°С€РµРЅРёСЏ <a onclick="$('#agreement_block').show();">Р·РґРµСЃСЊ</a> Рё РїРѕСЃС‚Р°РІСЊС‚Рµ В«РіР°Р»РѕС‡РєСѓВ» РІ РїРѕР»Рµ РґР»СЏ РїСЂРёРЅСЏС‚РёСЏ СѓСЃР»РѕРІРёР№ СЃРѕРіР»Р°С€РµРЅРёСЏ</div>
         <div class="calc agreement right"><input type="checkbox" id="agreement_check"/><label for="agreement_check"
                                                                                               onclick="checkAgr(this);"></label>
         </div>
         <div class="calc payment_icon"></div>
-        <p class="calc payment_info">Нажав кнопку «Далее», Вы будете перенаправлены на страницу платежной системы. После оплаты дождитесь перехода на страницу оформления РСО Евроинс</p>
+        <p class="calc payment_info">РќР°Р¶Р°РІ РєРЅРѕРїРєСѓ В«Р”Р°Р»РµРµВ», Р’С‹ Р±СѓРґРµС‚Рµ РїРµСЂРµРЅР°РїСЂР°РІР»РµРЅС‹ РЅР° СЃС‚СЂР°РЅРёС†Сѓ РїР»Р°С‚РµР¶РЅРѕР№ СЃРёСЃС‚РµРјС‹. РџРѕСЃР»Рµ РѕРїР»Р°С‚С‹ РґРѕР¶РґРёС‚РµСЃСЊ РїРµСЂРµС…РѕРґР° РЅР° СЃС‚СЂР°РЅРёС†Сѓ РѕС„РѕСЂРјР»РµРЅРёСЏ Р РЎРћ Р•РІСЂРѕРёРЅСЃ</p>
 
         <div class="calc_page3_bottom_line">
             <form onsubmit="return false; " method="get">
                 <div class="calc error all"></div>
-                <input class="calc button" type="submit" id="next" value="Далее"/>
+                <input class="calc button" type="submit" id="next" value="Р”Р°Р»РµРµ"/>
 
 
             </form>
         </div>
         <div id="agreement_block">
-			<p>Настоящим в порядке ч.2 ст.434 Гражданского кодекса Российской Федерации подтверждаю достижение соглашения сторон о признании договора страхования заключенным в письменной форме посредством электронной связи.</p>
-			<p>Действуя от своего имени и в своем интересе как страхователь, подтверждаю, что надлежащим образом ознакомлен и согласен с текстом и условиями «<a target="_blank" href="http://euro-ins.ru/files/pravila_vzr.doc">Правил комплексного страхования граждан, выезжающих с места постоянного проживания</a>» (от 15.05.2013 г., адрес в Интернете: http://euro-ins.ru/files/pravila_vzr.doc), в подтверждение чего заключаю настоящий договор, текст указанных правил страхования получил. Руководствуясь ч.2 ст. 160 Гражданского кодекса Российской Федерации, подтверждаю достижение соглашения сторон о допустимости использования факсимильного воспроизведения подписей и оттисков печатей с помощью средств копирования. В соответствии с Федеральным законом «О персональных данных» от 27.07.2006 N 152-ФЗ предоставляю свое согласие на обработку персональных данных включая все операции с персональными данными предусмотренные п.З ст.З закона на срок действия договора страхования и в течение 5 (пяти) лет с даты его прекращения».</p>
-			<p>Также подтверждаю, что  ознакомлен и согласен с текстом и условиями <a target="_blank" href="http://www.euro-ins.ru/files/public_offer.docx">Публичной оферты</a> о порядке заключения ООО «РСО «ЕВРОИНС» договоров комбинированного страхования граждан, выезжающих с места постоянного проживания (адрес в Интернете: http://www.euro-ins.ru/files/public_offer.docx).</p>
+			<p>РќР°СЃС‚РѕСЏС‰РёРј РІ РїРѕСЂСЏРґРєРµ С‡.2 СЃС‚.434 Р“СЂР°Р¶РґР°РЅСЃРєРѕРіРѕ РєРѕРґРµРєСЃР° Р РѕСЃСЃРёР№СЃРєРѕР№ Р¤РµРґРµСЂР°С†РёРё РїРѕРґС‚РІРµСЂР¶РґР°СЋ РґРѕСЃС‚РёР¶РµРЅРёРµ СЃРѕРіР»Р°С€РµРЅРёСЏ СЃС‚РѕСЂРѕРЅ Рѕ РїСЂРёР·РЅР°РЅРёРё РґРѕРіРѕРІРѕСЂР° СЃС‚СЂР°С…РѕРІР°РЅРёСЏ Р·Р°РєР»СЋС‡РµРЅРЅС‹Рј РІ РїРёСЃСЊРјРµРЅРЅРѕР№ С„РѕСЂРјРµ РїРѕСЃСЂРµРґСЃС‚РІРѕРј СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ СЃРІСЏР·Рё.</p>
+			<p>Р”РµР№СЃС‚РІСѓСЏ РѕС‚ СЃРІРѕРµРіРѕ РёРјРµРЅРё Рё РІ СЃРІРѕРµРј РёРЅС‚РµСЂРµСЃРµ РєР°Рє СЃС‚СЂР°С…РѕРІР°С‚РµР»СЊ, РїРѕРґС‚РІРµСЂР¶РґР°СЋ, С‡С‚Рѕ РЅР°РґР»РµР¶Р°С‰РёРј РѕР±СЂР°Р·РѕРј РѕР·РЅР°РєРѕРјР»РµРЅ Рё СЃРѕРіР»Р°СЃРµРЅ СЃ С‚РµРєСЃС‚РѕРј Рё СѓСЃР»РѕРІРёСЏРјРё В«<a target="_blank" href="http://euro-ins.ru/files/pravila_vzr.doc">РџСЂР°РІРёР» РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ СЃС‚СЂР°С…РѕРІР°РЅРёСЏ РіСЂР°Р¶РґР°РЅ, РІС‹РµР·Р¶Р°СЋС‰РёС… СЃ РјРµСЃС‚Р° РїРѕСЃС‚РѕСЏРЅРЅРѕРіРѕ РїСЂРѕР¶РёРІР°РЅРёСЏ</a>В» (РѕС‚ 15.05.2013 Рі., Р°РґСЂРµСЃ РІ РРЅС‚РµСЂРЅРµС‚Рµ: http://euro-ins.ru/files/pravila_vzr.doc), РІ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ С‡РµРіРѕ Р·Р°РєР»СЋС‡Р°СЋ РЅР°СЃС‚РѕСЏС‰РёР№ РґРѕРіРѕРІРѕСЂ, С‚РµРєСЃС‚ СѓРєР°Р·Р°РЅРЅС‹С… РїСЂР°РІРёР» СЃС‚СЂР°С…РѕРІР°РЅРёСЏ РїРѕР»СѓС‡РёР». Р СѓРєРѕРІРѕРґСЃС‚РІСѓСЏСЃСЊ С‡.2 СЃС‚. 160 Р“СЂР°Р¶РґР°РЅСЃРєРѕРіРѕ РєРѕРґРµРєСЃР° Р РѕСЃСЃРёР№СЃРєРѕР№ Р¤РµРґРµСЂР°С†РёРё, РїРѕРґС‚РІРµСЂР¶РґР°СЋ РґРѕСЃС‚РёР¶РµРЅРёРµ СЃРѕРіР»Р°С€РµРЅРёСЏ СЃС‚РѕСЂРѕРЅ Рѕ РґРѕРїСѓСЃС‚РёРјРѕСЃС‚Рё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ С„Р°РєСЃРёРјРёР»СЊРЅРѕРіРѕ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ РїРѕРґРїРёСЃРµР№ Рё РѕС‚С‚РёСЃРєРѕРІ РїРµС‡Р°С‚РµР№ СЃ РїРѕРјРѕС‰СЊСЋ СЃСЂРµРґСЃС‚РІ РєРѕРїРёСЂРѕРІР°РЅРёСЏ. Р’ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРё СЃ Р¤РµРґРµСЂР°Р»СЊРЅС‹Рј Р·Р°РєРѕРЅРѕРј В«Рћ РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹С… РґР°РЅРЅС‹С…В» РѕС‚ 27.07.2006 N 152-Р¤Р— РїСЂРµРґРѕСЃС‚Р°РІР»СЏСЋ СЃРІРѕРµ СЃРѕРіР»Р°СЃРёРµ РЅР° РѕР±СЂР°Р±РѕС‚РєСѓ РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹С… РґР°РЅРЅС‹С… РІРєР»СЋС‡Р°СЏ РІСЃРµ РѕРїРµСЂР°С†РёРё СЃ РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹РјРё РґР°РЅРЅС‹РјРё РїСЂРµРґСѓСЃРјРѕС‚СЂРµРЅРЅС‹Рµ Рї.Р— СЃС‚.Р— Р·Р°РєРѕРЅР° РЅР° СЃСЂРѕРє РґРµР№СЃС‚РІРёСЏ РґРѕРіРѕРІРѕСЂР° СЃС‚СЂР°С…РѕРІР°РЅРёСЏ Рё РІ С‚РµС‡РµРЅРёРµ 5 (РїСЏС‚Рё) Р»РµС‚ СЃ РґР°С‚С‹ РµРіРѕ РїСЂРµРєСЂР°С‰РµРЅРёСЏВ».</p>
+			<p>РўР°РєР¶Рµ РїРѕРґС‚РІРµСЂР¶РґР°СЋ, С‡С‚Рѕ  РѕР·РЅР°РєРѕРјР»РµРЅ Рё СЃРѕРіР»Р°СЃРµРЅ СЃ С‚РµРєСЃС‚РѕРј Рё СѓСЃР»РѕРІРёСЏРјРё <a target="_blank" href="http://www.euro-ins.ru/files/public_offer.docx">РџСѓР±Р»РёС‡РЅРѕР№ РѕС„РµСЂС‚С‹</a> Рѕ РїРѕСЂСЏРґРєРµ Р·Р°РєР»СЋС‡РµРЅРёСЏ РћРћРћ В«Р РЎРћ В«Р•Р’Р РћРРќРЎВ» РґРѕРіРѕРІРѕСЂРѕРІ РєРѕРјР±РёРЅРёСЂРѕРІР°РЅРЅРѕРіРѕ СЃС‚СЂР°С…РѕРІР°РЅРёСЏ РіСЂР°Р¶РґР°РЅ, РІС‹РµР·Р¶Р°СЋС‰РёС… СЃ РјРµСЃС‚Р° РїРѕСЃС‚РѕСЏРЅРЅРѕРіРѕ РїСЂРѕР¶РёРІР°РЅРёСЏ (Р°РґСЂРµСЃ РІ РРЅС‚РµСЂРЅРµС‚Рµ: http://www.euro-ins.ru/files/public_offer.docx).</p>
             <div class="bird">
                 <a id="bird_to_page3" onclick="$('#agreement_block').hide();"></a>
             </div>

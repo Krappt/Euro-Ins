@@ -3,7 +3,7 @@
 
 	$FileType = 'Excel5';
 	$FileName = 'policy.xls';
-	$Columns = array('Продавец', 'Серия, № полиса', 'Страна', 'Программа', 'Страхователь', 'Дата рождения', 'Застрахованные лица', 'Дата рождения', 'Застраховано чел.', 'Срок с', 'Срок по', 'Кол-во дней', 'Особые условия', 'Премия (у.е.)', 'Оформлен', 'Валюта', 'Курс', 'Страховая Сумма (у.е.)', 'Сумма (руб)', 'Премия (руб)', 'Адрес Страхователя', 'Электронная почта', 'Телефон Страхователя', 'Спорт');
+	$Columns = array('РџСЂРѕРґР°РІРµС†', 'РЎРµСЂРёСЏ, в„– РїРѕР»РёСЃР°', 'РЎС‚СЂР°РЅР°', 'РџСЂРѕРіСЂР°РјРјР°', 'РЎС‚СЂР°С…РѕРІР°С‚РµР»СЊ', 'Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ', 'Р—Р°СЃС‚СЂР°С…РѕРІР°РЅРЅС‹Рµ Р»РёС†Р°', 'Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ', 'Р—Р°СЃС‚СЂР°С…РѕРІР°РЅРѕ С‡РµР».', 'РЎСЂРѕРє СЃ', 'РЎСЂРѕРє РїРѕ', 'РљРѕР»-РІРѕ РґРЅРµР№', 'РћСЃРѕР±С‹Рµ СѓСЃР»РѕРІРёСЏ', 'РџСЂРµРјРёСЏ (Сѓ.Рµ.)', 'РћС„РѕСЂРјР»РµРЅ', 'Р’Р°Р»СЋС‚Р°', 'РљСѓСЂСЃ', 'РЎС‚СЂР°С…РѕРІР°СЏ РЎСѓРјРјР° (Сѓ.Рµ.)', 'РЎСѓРјРјР° (СЂСѓР±)', 'РџСЂРµРјРёСЏ (СЂСѓР±)', 'РђРґСЂРµСЃ РЎС‚СЂР°С…РѕРІР°С‚РµР»СЏ', 'Р­Р»РµРєС‚СЂРѕРЅРЅР°СЏ РїРѕС‡С‚Р°', 'РўРµР»РµС„РѕРЅ РЎС‚СЂР°С…РѕРІР°С‚РµР»СЏ', 'РЎРїРѕСЂС‚');
 
 	set_include_path(get_include_path() . PATH_SEPARATOR . '../includes/PHPExcel/');
 	include_once '../includes/PHPExcel/IOFactory.php';
@@ -39,7 +39,7 @@
 		$styleArray = array('font' => array('bold' => true));
 		
 		for ($Col = 0; $Col < count($Columns); $Col++) {
-			$CellValue = iconv("windows-1251", "UTF-8", $Columns[$Col]);
+			$CellValue = $Columns[$Col];
 			$objWorksheet->setCellValueByColumnAndRow($Col, $highestRow, $CellValue);
 			$Cell = PHPExcel_Cell::stringFromColumnIndex($Col) . $highestRow;
 			$objWorksheet->getStyle($Cell)->applyFromArray($styleArray);
@@ -92,22 +92,22 @@
 	$objWorksheet->setCellValueByColumnAndRow(10, $newRow, $Policy['date_out']);
 	$objWorksheet->setCellValueByColumnAndRow(11, $newRow, $Policy['totalDays']);
 	$objWorksheet->setCellValueByColumnAndRow(12, $newRow, $Policy['program']);
-	$objWorksheet->setCellValueByColumnAndRow(13, $newRow, sprintf("%08.2f", ($Policy['cost'] / $Policy['rate']))); // Премия (у.е.)
+	$objWorksheet->setCellValueByColumnAndRow(13, $newRow, sprintf("%08.2f", ($Policy['cost'] / $Policy['rate']))); // РџСЂРµРјРёСЏ (Сѓ.Рµ.)
 	$objWorksheet->setCellValueByColumnAndRow(14, $newRow, date('d.m.Y', strtotime($Policy['Date'])));
-	$objWorksheet->setCellValueByColumnAndRow(15, $newRow, substr($Policy['summa_0'], -3, 3)); // Валюта
-	$objWorksheet->setCellValueByColumnAndRow(16, $newRow, sprintf("%08.4f", $Policy['rate'])); // Курс
+	$objWorksheet->setCellValueByColumnAndRow(15, $newRow, substr($Policy['summa_0'], -3, 3)); // Р’Р°Р»СЋС‚Р°
+	$objWorksheet->setCellValueByColumnAndRow(16, $newRow, sprintf("%08.4f", $Policy['rate'])); // РљСѓСЂСЃ
 	SetStyle(17, $newRow);
 		$Sum = substr(str_replace(' ', '', $Policy['summa_0']), 0, -3);
-	$objWorksheet->setCellValueByColumnAndRow(17, $newRow, $Sum); // СтраховаяСумма(у.е.)
-	$objWorksheet->setCellValueByColumnAndRow(18, $newRow, sprintf("%08.2f", ($Policy['rate'] * $Sum))); // Сумма (руб)
-	$objWorksheet->setCellValueByColumnAndRow(19, $newRow, $Policy['cost']); // Премия (руб)
+	$objWorksheet->setCellValueByColumnAndRow(17, $newRow, $Sum); // РЎС‚СЂР°С…РѕРІР°СЏРЎСѓРјРјР°(Сѓ.Рµ.)
+	$objWorksheet->setCellValueByColumnAndRow(18, $newRow, sprintf("%08.2f", ($Policy['rate'] * $Sum))); // РЎСѓРјРјР° (СЂСѓР±)
+	$objWorksheet->setCellValueByColumnAndRow(19, $newRow, $Policy['cost']); // РџСЂРµРјРёСЏ (СЂСѓР±)
 	$objWorksheet->setCellValueByColumnAndRow(20, $newRow, $Policy['address']);
 	$objWorksheet->setCellValueByColumnAndRow(21, $newRow, $Policy['e-mail']);
 	$objWorksheet->setCellValueByColumnAndRow(22, $newRow, $Policy['phone']);
 	SetStyle(23, $newRow);
 		$RiskNames = '';
 		for ($No = 0; $No <= ($Policy['totalHumans'] - 1); $No++) {
-			if ($Policy['risk_'.$No] <> 'Без дополнительных рисков') {
+			if ($Policy['risk_'.$No] <> 'Р‘РµР· РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… СЂРёСЃРєРѕРІ') {
 				$RiskNames = $RiskNames . (($RiskNames <> '')?PHP_EOL:"") . $Policy['last_name_'.$No] . ' ' . $Policy['first_name_'.$No];
 			}
 		}

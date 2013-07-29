@@ -9,12 +9,12 @@ window.onload = function() {
 
 var isChangeSize = true;
 $(document).ready(function () {
-    var errorsArr = ['Неизвестная страна', 'Латинскими буквами (как в загранпаспорте)', 'Допустимый возраст от 1 до 80 лет', 'Необходимо заполнить все поля', 'Ошибка воода даты', 'Дата начала наступает менее, чем через 24 часа', 'Дата окончания раньше даты начала поездки', 'Действие полиса не должно быть дольше года', 'Введите корректный e-mail', 'Введите корректный телефон (0-9 , ( ) - +)', 'Для продолжения необходимо согласиться с условими соглашения', 'Дата окончания наступает менее, чем через 24 часа', 'Стоимость полиса нулевая. Обновите страницу.', 'Страна уже добавлена', 'Введите корректный номер (0-9, пробел)'],
+    var errorsArr = ['РќРµРёР·РІРµСЃС‚РЅР°СЏ СЃС‚СЂР°РЅР°', 'Р›Р°С‚РёРЅСЃРєРёРјРё Р±СѓРєРІР°РјРё (РєР°Рє РІ Р·Р°РіСЂР°РЅРїР°СЃРїРѕСЂС‚Рµ)', 'Р”РѕРїСѓСЃС‚РёРјС‹Р№ РІРѕР·СЂР°СЃС‚ РѕС‚ 1 РґРѕ 80 Р»РµС‚', 'РќРµРѕР±С…РѕРґРёРјРѕ Р·Р°РїРѕР»РЅРёС‚СЊ РІСЃРµ РїРѕР»СЏ', 'РћС€РёР±РєР° РІРѕРѕРґР° РґР°С‚С‹', 'Р”Р°С‚Р° РЅР°С‡Р°Р»Р° РЅР°СЃС‚СѓРїР°РµС‚ РјРµРЅРµРµ, С‡РµРј С‡РµСЂРµР· 24 С‡Р°СЃР°', 'Р”Р°С‚Р° РѕРєРѕРЅС‡Р°РЅРёСЏ СЂР°РЅСЊС€Рµ РґР°С‚С‹ РЅР°С‡Р°Р»Р° РїРѕРµР·РґРєРё', 'Р”РµР№СЃС‚РІРёРµ РїРѕР»РёСЃР° РЅРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РґРѕР»СЊС€Рµ РіРѕРґР°', 'Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅС‹Р№ e-mail', 'Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ (0-9 , ( ) - +)', 'Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅРµРѕР±С…РѕРґРёРјРѕ СЃРѕРіР»Р°СЃРёС‚СЊСЃСЏ СЃ СѓСЃР»РѕРІРёРјРё СЃРѕРіР»Р°С€РµРЅРёСЏ', 'Р”Р°С‚Р° РѕРєРѕРЅС‡Р°РЅРёСЏ РЅР°СЃС‚СѓРїР°РµС‚ РјРµРЅРµРµ, С‡РµРј С‡РµСЂРµР· 24 С‡Р°СЃР°', 'РЎС‚РѕРёРјРѕСЃС‚СЊ РїРѕР»РёСЃР° РЅСѓР»РµРІР°СЏ. РћР±РЅРѕРІРёС‚Рµ СЃС‚СЂР°РЅРёС†Сѓ.', 'РЎС‚СЂР°РЅР° СѓР¶Рµ РґРѕР±Р°РІР»РµРЅР°', 'Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ (0-9, РїСЂРѕР±РµР»)'],
         monthname = [
-            "января", "февраля", "марта",
-            "апреля", "мая", "июня",
-            "июля", "августа", "сентября",
-            "октября", "ноября", "декабря"
+            "СЏРЅРІР°СЂСЏ", "С„РµРІСЂР°Р»СЏ", "РјР°СЂС‚Р°",
+            "Р°РїСЂРµР»СЏ", "РјР°СЏ", "РёСЋРЅСЏ",
+            "РёСЋР»СЏ", "Р°РІРіСѓСЃС‚Р°", "СЃРµРЅС‚СЏР±СЂСЏ",
+            "РѕРєС‚СЏР±СЂСЏ", "РЅРѕСЏР±СЂСЏ", "РґРµРєР°Р±СЂСЏ"
         ],
         finaldatearr = [],
         finalcountry = [],
@@ -65,7 +65,7 @@ $(document).ready(function () {
         $(".calc.list ul").hide();
         $("input.use").addClass('active').removeClass('unactive').removeClass('use');
         if ($(thiselem).parent('ul').siblings('input').attr('name') == 'program') {
-            if ($(thiselem).children('span').html() != 'Стандарт') {
+            if ($(thiselem).children('span').html() != 'РЎС‚Р°РЅРґР°СЂС‚') {
                 $('.dateSplitOutDay').hide();
                 $('#multi_program').show();
                 $('span.multi_val').html($(thiselem).children('span').html());
@@ -263,12 +263,12 @@ $(document).ready(function () {
         var d2 = StrToDate(date2);
 
         var dat = d1.getTime() - d2.getTime();
-        // разница в днях
+        // СЂР°Р·РЅРёС†Р° РІ РґРЅСЏС…
         dat = Math.floor(dat / 1000 / 3600 / 24);
         return dat;
     }
 
-// Перевод строки Дд.Мм.ВвГг в формат даты
+// РџРµСЂРµРІРѕРґ СЃС‚СЂРѕРєРё Р”Рґ.РњРј.Р’РІР“Рі РІ С„РѕСЂРјР°С‚ РґР°С‚С‹
     function StrToDate(Dat) {
         var year = Number(Dat.substr(6, 4));
         var month = Number(Dat.substr(3, 2));
@@ -401,7 +401,7 @@ $(document).ready(function () {
             $('#human_wrap').append('<div id="human_' + humanindex + '" class="calc_subpage totalhuman"></div>');
             $('#human_' + humanindex).css('margin-top', '30px');
             $('#human_' + humanindex).append($('#human_0').html());
-            $('#human_' + humanindex).prepend('<div class="remove_human"><a class="calc link" onclick="remove_human(this);"><span>Х</span> удалить</a></div> ');
+            $('#human_' + humanindex).prepend('<div class="remove_human"><a class="calc link" onclick="remove_human(this);"><span>РҐ</span> СѓРґР°Р»РёС‚СЊ</a></div> ');
 
             $('#human_' + humanindex+' input.input_text').each(function(){
                if($(this).hasClass("active")) $(this).removeClass("active").addClass("unactive").css("text-align","center");
@@ -532,7 +532,7 @@ $(document).ready(function () {
                 dayCount = getDaysInMonth(thisyear,thismonth);
 
                 if (thismonth > 12 || thismonth == 0 || thisday > dayCount || thisday == 0) elem.siblings('div.error.date0').html(errorsArr[4]);
-                else if ($("#date_in_id").val().match(/[A-zА-я]/g) == null) {
+                else if ($("#date_in_id").val().match(/[A-zРђ-СЏ]/g) == null) {
                     if (CalcDate(selectedInDay, nowDate) <= 0) elem.siblings('div.error.date0').html(errorsArr[5]);
                     else elem.siblings('div.error.date0').html('');
                 }
@@ -551,7 +551,7 @@ $(document).ready(function () {
                 globalThisDate = CalcDate(selectedOutDay, nowDate);
 
                 if (thismonth > 12 || thismonth == 0 || thisday > dayCount || thisday == 0) elem.siblings('div.error.date').html(errorsArr[4]);
-                else if ($('#date_out_id').val().match(/[A-zА-я]/g) == null) {
+                else if ($('#date_out_id').val().match(/[A-zРђ-СЏ]/g) == null) {
                     thisdate = CalcDate(selectedOutDay, selectedInDay).toString();
                     if (parseInt(thisdate) < 0) elem.siblings('div.error.date').html(errorsArr[6]);
                     else if (parseInt(thisdate) > 365) elem.siblings('div.error.date').html(errorsArr[7]);
@@ -879,7 +879,7 @@ $(document).ready(function () {
         nowDate = (nowDay + '.' + nowMonth + '.' + nowDate.getFullYear().toString());
 
 
-        /* сбор инфы */
+        /* СЃР±РѕСЂ РёРЅС„С‹ */
         for (var i in finalcountry) finalcountry.splice(i, 1);
         finalshengen = 0;
         //date
@@ -896,7 +896,7 @@ $(document).ready(function () {
             ;
             i++;
         });
-        /* сбор инфы */
+        /* СЃР±РѕСЂ РёРЅС„С‹ */
 
 
         $('div.calc_page3 div.calc.value.country').html(finalcountry.join(', '));

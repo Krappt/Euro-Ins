@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Полис оплачен и сформирован</title>
+	<title>РџРѕР»РёСЃ РѕРїР»Р°С‡РµРЅ Рё СЃС„РѕСЂРјРёСЂРѕРІР°РЅ</title>
     <link rel="stylesheet" type="text/css" href="calc.css">
 <?php
 	if (isset($_GET['PartnerID']) and file_exists('calc'.$_GET['PartnerID'].'.css')) { 
@@ -20,14 +20,14 @@
 	    <div class="calc_page4_head calc_subpage">
 	    </div>
 	    <div class="calc_page4_center calc_subpage">
-	        <div class="calc number_polis top">Заказ № <span id="calc number_polis"><?php echo iconv("UTF-8", "windows-1251", $PolicyNo); ?></span> успешно оплачен!</div>
-	        <div class="calc number_polis center">Ваш электронный страховой полис автоматически сформирован и направлен на указанный email</div>
+	        <div class="calc number_polis top">Р—Р°РєР°Р· в„– <span id="calc number_polis"><?php echo $PolicyNo; ?></span> СѓСЃРїРµС€РЅРѕ РѕРїР»Р°С‡РµРЅ!</div>
+	        <div class="calc number_polis center">Р’Р°С€ СЌР»РµРєС‚СЂРѕРЅРЅС‹Р№ СЃС‚СЂР°С…РѕРІРѕР№ РїРѕР»РёСЃ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё СЃС„РѕСЂРјРёСЂРѕРІР°РЅ Рё РЅР°РїСЂР°РІР»РµРЅ РЅР° СѓРєР°Р·Р°РЅРЅС‹Р№ email</div>
 	        <div class="bird fill">
 	            <a id="bird_to_empty"></a>
 	        </div>
 	    </div>
 	    <div class="calc_page4_bottom calc_subpage">
-	        <div>По любым вопросам Вы можете обратиться в нашу службу клиентской поддержки по телефону +7&nbsp;(495)&nbsp;926-62-86 в будни с 09:00 до 18:00 по московскому времени</div>
+	        <div>РџРѕ Р»СЋР±С‹Рј РІРѕРїСЂРѕСЃР°Рј Р’С‹ РјРѕР¶РµС‚Рµ РѕР±СЂР°С‚РёС‚СЊСЃСЏ РІ РЅР°С€Сѓ СЃР»СѓР¶Р±Сѓ РєР»РёРµРЅС‚СЃРєРѕР№ РїРѕРґРґРµСЂР¶РєРё РїРѕ С‚РµР»РµС„РѕРЅСѓ +7&nbsp;(495)&nbsp;926-62-86 РІ Р±СѓРґРЅРё СЃ 09:00 РґРѕ 18:00 РїРѕ РјРѕСЃРєРѕРІСЃРєРѕРјСѓ РІСЂРµРјРµРЅРё</div>
 	    </div>
 	</div>
 </div>

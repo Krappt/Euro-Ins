@@ -1,7 +1,6 @@
 <?php
 
-	define('IN_SUBDREAMER', true);
-	include('../includes/core.php');
+	include('../wp-load.php');
 	if ($_POST['totalHumans'] == '') { die('Hacking attempt!'); }
 
 	require('policy_config.php');

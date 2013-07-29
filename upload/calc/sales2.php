@@ -9,61 +9,60 @@
 
 <?php
 
-	define('IN_SUBDREAMER', true);
-	include('../includes/core.php');
+	include('../wp-load.php');
 	include('policy_db.php');
 
-	global $DB;
+	global $wpdb;
 
 	$tab = "\t"; $eol = PHP_EOL;
 	
 	$SQL = 'SELECT * FROM `policies`';
 	if (isset($_GET['PartnerID'])) { $SQL = $SQL . ' WHERE PID = ' . $_GET['PartnerID']; }
-	$Table = $DB->query($SQL);
+	$Table = $wpdb->get_results($SQL, ARRAY_A);
 
 	echo '<table border="1">'.$eol;
 		echo $tab.'<tr>';
-		if (!isset($_GET['PartnerID'])) { echo '<td>Продавец</td>'; }
-		echo '<td>Номер полиса</td><td>Страны поездки</td><td>Застрахованные</td><td>Даты рождения</td><td>Начало действия</td><td>Окончание</td><td>Кол-во дней</td><td>Программа</td><td>Премия</td><td>Дата оплаты</td><td>Премия в рублях</td>';
+		if (!isset($_GET['PartnerID'])) { echo '<td>РџСЂРѕРґР°РІРµС†</td>'; }
+		echo '<td>РќРѕРјРµСЂ РїРѕР»РёСЃР°</td><td>РЎС‚СЂР°РЅС‹ РїРѕРµР·РґРєРё</td><td>Р—Р°СЃС‚СЂР°С…РѕРІР°РЅРЅС‹Рµ</td><td>Р”Р°С‚С‹ СЂРѕР¶РґРµРЅРёСЏ</td><td>РќР°С‡Р°Р»Рѕ РґРµР№СЃС‚РІРёСЏ</td><td>РћРєРѕРЅС‡Р°РЅРёРµ</td><td>РљРѕР»-РІРѕ РґРЅРµР№</td><td>РџСЂРѕРіСЂР°РјРјР°</td><td>РџСЂРµРјРёСЏ</td><td>Р”Р°С‚Р° РѕРїР»Р°С‚С‹</td><td>РџСЂРµРјРёСЏ РІ СЂСѓР±Р»СЏС…</td>';
 		echo '</tr>'.$eol;
 	
-	while($Row = $DB->fetch_array($Table)) {
+	foreach ($Table as $Row) {
 		echo $tab.'<tr>';
 		if (!isset($_GET['PartnerID'])) { echo '<td>'.$Row['PID'].'</td>'; }
-		// Номер полиса
-		echo '<td>'.sprintf("ВЗР%06dИ", $Row['ID']).'</td>';
-		// Страны поездки
+		// РќРѕРјРµСЂ РїРѕР»РёСЃР°
+		echo '<td>'.sprintf("Р’Р—Р %06dР", $Row['ID']).'</td>';
+		// РЎС‚СЂР°РЅС‹ РїРѕРµР·РґРєРё
 			$Countries = '';
 			for ($No = 0; $No <= ($Row['totalHumans'] - 1); $No++) {
 				$Countries = $Countries . (($Countries <> '')?'<br/>':'') . $Row['country_'.$No];
 			}
 		echo '<td>'.$Countries.'</td>';
-		// Застрахованные
+		// Р—Р°СЃС‚СЂР°С…РѕРІР°РЅРЅС‹Рµ
 			$Names = '';
 			for ($No = 0; $No <= ($Row['totalHumans'] - 1); $No++) {
 				$Names = $Names . (($Names <> '')?'<br/>':'') . $Row['last_name_'.$No] . ' ' . $Row['first_name_'.$No];
 			}
 		echo '<td>'.$Names.'</td>';
-		// Даты рождения
+		// Р”Р°С‚С‹ СЂРѕР¶РґРµРЅРёСЏ
 		$BirthDays = '';
 		for ($No = 0; $No <= ($Row['totalHumans'] - 1); $No++) {
 			$BirthDays = $BirthDays . (($BirthDays <> '')?'<br/>':'') . $Row['birthday_'.$No];
 		}
 		echo '<td>'.$BirthDays.'</td>';
-		// Начало действия
+		// РќР°С‡Р°Р»Рѕ РґРµР№СЃС‚РІРёСЏ
 		echo '<td>'.$Row['date_in'].'</td>';
-		// Окончание
+		// РћРєРѕРЅС‡Р°РЅРёРµ
 		echo '<td>'.$Row['date_out'].'</td>';
-		// Кол-во дней
+		// РљРѕР»-РІРѕ РґРЅРµР№
 		echo '<td>'.$Row['totalDays'].'</td>';
-		// Программа
+		// РџСЂРѕРіСЂР°РјРјР°
 		echo '<td>'.$Row['program'].'</td>';
-		// Премия
-		if ($Row['vpc_Amount'] != '') { echo '<td>'.money_format('%.2n', $Row['vpc_Amount']/100/$Row['rate']).' руб.</td>'; } else { echo '<td>&nbsp;</td>'; }
-		// Дата оплаты
+		// РџСЂРµРјРёСЏ
+		if ($Row['vpc_Amount'] != '') { echo '<td>'.money_format('%.2n', $Row['vpc_Amount']/100/$Row['rate']).' СЂСѓР±.</td>'; } else { echo '<td>&nbsp;</td>'; }
+		// Р”Р°С‚Р° РѕРїР»Р°С‚С‹
 		if ($Row['vpc_BatchNo'] != '') { echo '<td>'.date('d.m.Y', strtotime($Row['vpc_BatchNo'])).'</td>'; } else { echo '<td>&nbsp;</td>'; }
-		// Премия в рублях ( 20ый столбец)
-		if ($Row['vpc_Amount'] != '') { echo '<td>'.money_format('%.2n', $Row['vpc_Amount']/100).' руб.</td>'; } else { echo '<td>&nbsp;</td>'; }
+		// РџСЂРµРјРёСЏ РІ СЂСѓР±Р»СЏС… ( 20С‹Р№ СЃС‚РѕР»Р±РµС†)
+		if ($Row['vpc_Amount'] != '') { echo '<td>'.money_format('%.2n', $Row['vpc_Amount']/100).' СЂСѓР±.</td>'; } else { echo '<td>&nbsp;</td>'; }
 		echo '</tr>'.$eol;
 	}
 	echo '</table>'.$eol;

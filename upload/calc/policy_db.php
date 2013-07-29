@@ -6,7 +6,7 @@
 
 	function ShowPOST() {
 		foreach($_POST as $key=>$value) {
-			echo "$key - ".iconv("windows-1251", "UTF-8", $value)."<br />";
+			echo "$key - $value<br />";
 		}
 	}
 
@@ -20,48 +20,44 @@
 	}
 
 	function SavePolicy() {
-		global $DB, $PolicyID;
+		global $wpdb, $PolicyID;
 
 		if ($_GET['PartnerID'] != '') { $PartnerID = $_GET['PartnerID']; } else { $PartnerID = 0; }
 
-		$DB->query('INSERT INTO `policies` (`PID`,`'.implode('`,`',array_keys($_POST)).'`) VALUES ("'.$PartnerID.'","'.implode('","',array_values($_POST)).'");');
+		$wpdb->insert('policies', array_merge(array('PID' => $PartnerID), $_POST));
 
-		$PolicyID = $DB->insert_id();
+		$PolicyID = $wpdb->insert_id;
 	}
 
 	function LoadPolicy() {
-		global $DB, $Policy, $PolicyNo, $PolicyID;
+		global $wpdb, $Policy, $PolicyNo, $PolicyID;
 
-		$Policy = $DB->fetch_array($DB->query('SELECT * FROM `policies` WHERE ID = %d;', $PolicyID));
-		// Меняем кодировку переданных параметров
-		foreach($Policy as $key=>$value) {
-			$Policy[$key] = iconv("windows-1251", "UTF-8", $value);
-		}
+		$Policy = $wpdb->get_row('SELECT * FROM `policies` WHERE ID = ' . $PolicyID, ARRAY_A);
 
-		// Формируем номер полиса
-		$PolicyNo = iconv("windows-1251", "UTF-8", sprintf("ВЗР%06dИ", $PolicyID));
+		// Р¤РѕСЂРјРёСЂСѓРµРј РЅРѕРјРµСЂ РїРѕР»РёСЃР°
+		$PolicyNo = sprintf("Р’Р—Р %06dР", $PolicyID);
 	}
 
 	function ShowGET() {
 		foreach($_GET as $key=>$value) {
-			echo "$key - ".iconv("windows-1251", "UTF-8", $value)."<br />";
+			echo "$key - $value<br />";
 		}
 	}
 
 	function SaveVPC() {
-		global $DB, $PolicyID;
+		global $wpdb, $PolicyID;
 
-		$count = $DB->query_first('SELECT COUNT(*) FROM `policies` WHERE (ID = ' . $PolicyID . ') and (`vpc_SecureHash` IS NULL)');
-		if ($count[0] == 1) {
+		$count = $wpdb->get_var('SELECT COUNT(*) FROM `policies` WHERE (ID = ' . $PolicyID . ') and (`vpc_SecureHash` IS NULL)');
+		if ($count == 1) {
 			foreach ($_GET as $key => $value) {
 				$updates[] = "$key = '$value'";
 			}
 			$implodeArray = implode(', ', $updates);
 
-			$DB->query('UPDATE `policies` SET ' . $implodeArray . ' WHERE ID = ' . $PolicyID);
+			$wpdb->update('policies', $updates, array('ID' => $PolicyID));
 		}
 		
-		return $count[0];
+		return $count;
 	}
 
 ?>
