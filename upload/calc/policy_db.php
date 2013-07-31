@@ -49,12 +49,7 @@
 
 		$count = $wpdb->get_var('SELECT COUNT(*) FROM `policies` WHERE (ID = ' . $PolicyID . ') and (`vpc_SecureHash` IS NULL)');
 		if ($count == 1) {
-			foreach ($_GET as $key => $value) {
-				$updates[] = "$key = '$value'";
-			}
-			$implodeArray = implode(', ', $updates);
-
-			$wpdb->update('policies', $updates, array('ID' => $PolicyID));
+			$wpdb->update('policies', $_GET, array('ID' => $PolicyID));
 		}
 		
 		return $count;
