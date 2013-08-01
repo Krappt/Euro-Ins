@@ -922,7 +922,7 @@ $(document).ready(function () {
             finaldateout = day + ' ' + monthname[month] + ' ' + year;
             $('div.calc_page3 div.calc.value.end').html(finaldateout);
 
-            if(String(month).length==1) month="0"+String(month+1);
+            if(month<9) month="0"+String(month+1);
             else month = month+1;
             $("#date_out_id").val(day + '.' + (month) + '.' + year);
         }
