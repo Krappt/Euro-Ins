@@ -1,0 +1,39 @@
+^case[0]{$res[Transaction Successful]} - ---- Одобрено// Aproove 
+^case[?]{$res[Transaction status is unknown]} - Неизветсная ошибка//Transaction status is unknown
+^case[1]{$res[Unknown Error]}			Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[2]{$res[Bank Declined Transaction]} ---- Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[3]{$res[No Reply from Bank]}		Ошибка связи с Вашим Бакном//Error Communicating with Bank
+^case[4]{$res[Expired Card]}----------------- Срок действия карты истек// Expired Card
+^case[5]{$res[Insufficient funds]}		Недостаток средств//Insufficient funds
+^case[6]{$res[Error Communicating with Bank]} -- Ошибка связи с Вашим Бакном//Error Communicating with Bank
+^case[7]{$res[Payment Server System Error]}---Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[8]{$res[Transaction Type Not Supported]}--Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[9]{$res[Bank declined transaction (Do not contact Bank)]}
+^case[A]{$res[Transaction Aborted]}--Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[C]{$res[Transaction Cancelled]}---Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[D]{$res[Deferred transaction has been received and is awaiting processing]}
+^case[F]{$res[3D Secure Authentication failed]}-Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[I]{$res[Card Security Code verification failed]}---Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[L]{$res[Shopping Transaction Locked (Please try the transaction again later)]}---Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[N]{$res[Cardholder is not enrolled in Authentication scheme]}  Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[P]{$res[Transaction has been received by the Payment Adaptor and is being processed]}--Транзакция отклонена, пожалуйста обратитесь в Ваш Банк//Bank Declined Transaction, plesae call to issuer Bank
+^case[R]{$res[Transaction was not processed - Reached limit of retry attempts allowed]}
+^case[S]{$res[Duplicate SessionID (OrderInfo)]}
+^case[T]{$res[Address Verification Failed]}
+^case[U]{$res[Card Security Code Failed]}
+^case[V]{$res[Address Verification and Card Security Code Failed]}
+^case[DEFAULT]{$res[Unable to be determined]}
+^case[E]{$res[The cardholder is not enrolled.]}
+^case[N]{$res[The cardholder was not verified.]}
+^case[U]{$res[The cardholders Issuer was unable to authenticate due to some system error at the Issuer.]}
+^case[F]{$res[There was an error in the format of the request from the merchant.]}
+^case[A]{$res[Authentication of your Merchant ID and Password to the ACS Directory Failed.]}
+^case[D]{$res[Error communicating with the Directory Server.]}
+^case[C]{$res[The card type is not supported for authentication.]}
+^case[S]{$res[The signature on the response received from the Issuer could not be validated.]}
+^case[P]{$res[Error parsing input from Issuer.]}
+^case[I]{$res[Internal Payment Server system error.]}
+^case[DEFAULT]{$res[Unable to be determined]}
+
+
+ответ B-Risk block - "транзакция отклонена, пожалуйста используйте другую карту//Bank Declined Transaction, plesae call to issuer Bank or use use a different card.
