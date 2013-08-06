@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" type="text/css" href="calc.css">
 <?php
-	if (isset($_GET['PartnerID']) and file_exists('calc'.$_GET['PartnerID'].'.css')) { 
-		echo '<link rel="stylesheet" type="text/css" href="calc'.$_GET['PartnerID'].'.css">'.PHP_EOL;
+	if (isset($_GET['PartnerID']) and file_exists('styles/calc'.$_GET['PartnerID'].'.css')) { 
+		echo '<link rel="stylesheet" type="text/css" href="styles/calc'.$_GET['PartnerID'].'.css">'.PHP_EOL;
 	}
 ?>
     <title>Заказ полиса</title>
