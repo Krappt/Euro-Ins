@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Yandex Speller Application
-Plugin URI: 
+Plugin URI: http://wordpress.org/plugins/yandex-speller-application/
 Description: Модифицирует в визуальном редакторе TinyMCE стандартную проверку правописания на проверку правописания используя сервис <a href="http://api.yandex.ru/speller/doc/dg/concepts/speller-overview.xml">Яндекс.Спеллер</a>, что очень подходит для проверки текстов на русском языке.
-Version: 1.0
-Author: Dmitry Ponomarev A.
-Author URI: 
+Version: 1.0.1
+Author: Dmitry Ponomarev
+Author URI: http://earthperson.info
 */
 
-/*  Copyright 2009  Dmitry Ponomarev A. (email : ponomarev.base@gmail.com)
+/*  Copyright 2009  Dmitry Ponomarev (email : ponomarev.dev@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

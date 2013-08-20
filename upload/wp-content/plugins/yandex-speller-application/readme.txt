@@ -1,5 +1,5 @@
 === Yandex Speller Application ===
-Contributors: Dmitry Ponomarev.
+Contributors: earthperson
 Donate link: 
 Tags: speller, yandex, wysiwyg, tinymce
 Requires at least: 2.8.4
