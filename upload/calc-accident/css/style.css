@@ -1,0 +1,156 @@
+body {margin: 0; color:#ffffff; font-family:Verdana, Geneva, sans-serif; font-size: 13px}
+#calc > div > p {margin-bottom: 30px;}
+#calc ul {text-align: left; list-style: disc inside; padding-left: 0}
+
+*:first-child+html #calc ul { /* хак для ие7 */
+    margin-left: 0;
+}
+
+#calc ul li {margin-bottom: 5px;}
+
+#calc a {text-decoration: underline; cursor: pointer}
+#calc a:hover {text-decoration: none}
+
+#calc table {width: 100%;border-spacing: 10px;}
+#calc table td {text-align: center; vertical-align: middle}
+
+#calc input {font-family:Verdana, Geneva, sans-serif;}
+
+#calc .title, #calc .policyCost {font-size: 21px}
+#calc .title2 {font-size: 15px}
+#calc .title3 {font-size: 17px}
+#calc .policyCost, #calc .requestNumber {font-weight: bold}
+#calc .hint {font-size: 11px; display: block; margin-top: 10px}
+#calc .subtext { display:block; font-size:14px; text-align:right; margin-top:5px;}
+#calc .error {font-size: 10px; color: #EDF122;position: absolute;left: 0;top: -15px;}
+
+#calc .popUpOutside {position: absolute; z-index: 10; width: 100%; height: 100%; top:0;left: 0; display:none; }
+#calc .popUpBg {background-color: #000000; width: 100%; height: 100%; z-index: 11; top:0;left: 0;opacity: 0.3; filter: alpha(opacity=0.3);}
+#calc .popUpInside {background:#5da3f5; border:1px solid #ffffff; padding:0 30px 0 30px; position:absolute; top:25%; width:610px; left:50%; margin-left: -336px; z-index:12;text-align: center}
+
+#calc .bird a { width:67px; height:65px; background:url('../img/bird.png'); margin:0 auto; display:block; margin-bottom:15px; cursor:pointer}
+#calc .bird a:hover {background:url('../img/bird_hover.png');}
+#calc .bird.fill { width:67px; height:65px; background:url('../img/bird_fill.png'); margin:0 auto; display:block; margin-top:20px;}
+
+#calc .buttonGroup {position: relative;float: right;margin-right: 70px;}
+#calc .button { background-color:#edf121; border:1px solid #ffffff;width:198px; height:35px; text-align:center; cursor:pointer;  color:#14559a; font-size:20px;  margin:0 auto;}
+#calc .button:hover {background-color:#ffffff;border:1px solid #5da3f5;}
+
+#calc .fieldLine { margin-bottom: 20px; position: relative}
+#calc .field {text-align:center;background: #ffffff; color: #666666;border: #ffffff solid 1px; width: 280px; height: 33px; padding: 0 10px ;font-size: 17px;}
+#calc .field[disabled=disabled], #calc .disabled {opacity: 0.5; filter: alpha(opacity=0.5);}
+#calc .fieldFocus {background: transparent; color: #ffffff; text-align: left}
+#calc .fieldFirst {width: 100px}
+#calc .fieldSecond {width: 143px; margin-left: 10px}
+#calc .readOnlyField {background: transparent;color:#ffffff; border: 0; width: 150px}
+
+#calc .dateGroup {float: left; position: relative}
+#calc .dateSplit {width: 302px;overflow: hidden;}
+#calc .dateSplit.dateSplitInDay {margin-top: 0}
+#calc .dateSplit > div {height:28px;  background-color: #ffffff; float: left;margin-left: 10px; text-align: center; padding-top: 7px}
+#calc .dateSplit div.dateSplitDay {width: 21%; margin-left: 0}
+#calc .dateSplit div.dateSplitMonth {width: 44%}
+#calc .dateSplit div.dateSplitYear {width: 28.3%}
+
+#calc .buttonBlock {display: inline-block; margin: 0 25px; zoom: 1; *display: inline;}
+#calc .buttonLink {background: #ffffff; color: #666666; cursor: pointer; margin-bottom: 10px; border: #ffffff solid 1px; vertical-align: middle; display: table-cell;}
+
+*:first-child+html #calc .buttonLink div.singleLine { /* хак для ие7 */
+    display: block;
+    z-index: expression(
+runtimeStyle.zIndex = 1,
+this == ((200/2)-parseInt(offsetHeight)/2) <0 ? style.marginTop="0" : style.marginTop=(45/2)-(parseInt(offsetHeight)/2) +'px');
+}
+
+*:first-child+html #calc .buttonLink div.multiLine { /* хак для ие7 */
+    display: block;
+    z-index: expression(
+runtimeStyle.zIndex = 1,
+this == ((200/2)-parseInt(offsetHeight)/2) <0 ? style.marginTop="0" : style.marginTop=(22/2)-(parseInt(offsetHeight)/2) +'px');
+}
+
+#calc .buttonLink:hover, #calc .field:hover {background-color:#5da3f5;color:#ffffff;}
+
+#calc .buttonLink.page1buttons {width: 190px; font-size: 17px; height: 45px}
+#calc .buttonLink.page2buttons {width: 255px; height: 70px}
+#calc .page2InsuranceSum1, #calc .page2InsuranceSum2, .page2cost1, .page2cost2 {font-size: 17px}
+
+#calc .radioGroup {
+    overflow: hidden;
+    margin-left: 50px;
+    margin-top: -51px;
+    margin-bottom: 20px;
+}
+
+*:first-child+html #calc .radioGroup { /* хак для ие7 */
+    margin-top: -50px;
+    margin-bottom: 11px;
+}
+
+#calc .radioGroup .radio, #calc input[type="checkbox"] + label {
+    display: block;
+    cursor: pointer;
+    padding-left: 40px;
+    line-height: 43px;
+    height: 43px;
+    background: url(../img/checked.png) no-repeat 0 -76px;
+}
+#calc .radioGroup .radio.selected, #calc input[type="checkbox"] + label.selected {
+    background-position: 0 1px;
+}
+#calc .radioGroup input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 101;
+    cursor: pointer;
+}
+
+#calc input[type="checkbox"] { display: none}
+#calc input[type="checkbox"] + label {margin: 0 0 -10px 30px;}
+
+#calc .paymentIcon {background:url('../img/pay.png'); width:135px; height:33px; float: left; margin-left: 250px}
+
+#calc {width: 691px; height: 751px}
+#calc > div, #calc form > div { background: #115399; position: relative}
+
+#calc #page1 {display: block}
+#calc #page1, #calc #page2 {text-align: center; padding:20px 35px;}
+#calc #page1 > div, #calc #page2 > div, #calc #page3 #page3Top > div, #page3 #page3Bottom > div, #page4 #page4Bottom > div, #calc #page5 #page5Middle > div  {margin-bottom: 20px}
+#calc #page1 > span, #calc #page2 > span {margin-top: -10px; margin-bottom: 20px;}
+
+#calc #page2, #calc #page3, #calc #page4, #calc #page5 {display: none}
+
+#calc #page3 #page3Top { padding:10px 25px}
+#calc #page3 #page3Top div:first-child {text-align: center;}
+#calc #page3 #finalCostWrap {float: right; margin-bottom: 10px !important}
+#calc #page3 #page3Middle, #calc #page4 #page4Middle, #calc #page5Middle {border-bottom: #ffffff 3px solid; border-top:#ffffff 1px solid; clear: both; padding: 10px 20px;overflow: hidden;}
+#calc .inputGroupLeft {float: left; width: 50%;margin-top: 25px;}
+#calc .inputGroupRight {float: right;margin-top: 25px;}
+#calc .inputGroupBottom { width: 100%;overflow: hidden;}
+#calc .inputGroupBottom .inputGroupBottomLeft {float: left; width: 50%;margin-top: 30px; text-align: center;}
+#calc .inputGroupBottom .inputGroupBottomRight {float: right; margin-top: 15px}
+#calc .inputGroupBottom .fieldLine:last-child {margin-bottom: 0}
+#calc #page3 #page3Bottom, #calc #page4 #page4Bottom { padding:10px 20px; overflow: hidden}
+#calc #page3 #page3Bottom .subtext {text-align: left; margin-left: 181px;}
+
+#calc #page4 #page4Top { padding:0 15px 10px 15px}
+#calc #page4 #page4Bottom #agreementGroup {overflow: hidden; padding-bottom: 10px; position: relative}
+#calc #page4 #page4Bottom #agreementGroup #agreementGroupLeft {text-align: center;position: absolute; margin-right: 50px; top: 10px;}
+#calc #page4 #page4Bottom #agreementGroup .agreementCheckBoxGroup {float: right}
+#calc #page4 #page4Bottom #centerGroup {overflow: hidden; position: relative}
+#calc #page4 #page4Bottom #centerGroup .button {float: right}
+#calc #page4 #page4Bottom .error {position: relative; text-align: right; height: 15px; margin-bottom: -10px;}
+#calc #page4 #page4Bottom .error + div {text-align: center}
+
+#calc #page5 {height: 100%; text-align: center}
+#calc #page5 #page5Top {height: 25%}
+#calc #page5 #page5Middle {height: 45%; padding: 0 80px;}
+#calc #page5 #page5Middle .requestNumber {margin-top: 80px}
+#calc #page5 #page5Bottom {height: 30%; width: 500px; margin: 0 auto; padding-top: 40px}
+
+
+
+
+
