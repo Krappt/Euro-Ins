@@ -26,7 +26,6 @@
 		$from_name = 'Euro-Ins';
 		$from_mail = 'info@euro-ins.ru';
 		$subject = 'Policy';
-		$message = 'Policy Message Body';
 		$filename = 'policy.pdf';
 
 		$mail = new PHPMailer();
@@ -42,9 +41,11 @@
 			$mail->AddReplyTo($from_mail,$from_name);
 		$mail->AddAddress($to_mail, $to_name);
 		$mail->Subject = $subject;
-		$mail->Body = $message;
-			// $mail->AltBody = $message;
-			// $mail->MsgHTML(file_get_contents('message.html')); // eregi_replace("[\]",'',$body); ???
+			ob_start();
+			include("message.html");
+			$html = ob_get_contents();
+			ob_end_clean();
+		$mail->MsgHTML($html);
 		$mail->AddStringAttachment($content, $filename);
 
 		$is_sent = $mail->Send();
