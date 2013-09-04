@@ -72,12 +72,13 @@
     <form method="POST" class="fieldGroup" action="handler.php" id="sendRequest">
         <div id="page3">
             <div id="page3Top">
-                <div class="title3">Ваша страховая программа:</div>
-                <div><label for="insuranceSum">Страховая сумма - </label><input name="insuranceSum" type="text" id="insuranceSum" class="readOnlyField title2" disabled="disabled"/></div>
-                <div><span id="riskStroke"> </span></div>
-                <div id="finalCostWrap">
-                    <label class="title2" for="insuranceCost">Стоимость страхования: </label><input name="insuranceCost" id="insuranceCost" class="readOnlyField title3 policyCost"  disabled="disabled"/>
-                </div>
+                  <div class="title3">Ваша страховая программа:</div>
+                               <div><span>Страховая сумма - </span><span id="insuranceSum" class="title2"></span></div>
+                               <div><span id="riskStroke"> </span></div>
+                               <div id="finalCostWrap" class="title2"><span>Стоимость страхования: </span><span id="insuranceCost"> </span>
+                               <input type="hidden" name="insuranceSum"/>
+                               <input type="hidden" name="insuranceCost"/>
+                  </div>
             </div>
             <div id="page3Middle">
                 <div class="title3"><span>Застрахованный </span><span id="ageRange"> </span></div>

@@ -141,10 +141,13 @@ $(document).ready(function () {
         $("#page2").hide();
         $("#page3").show();
 
-        $("#insuranceSum").val(chooseInsuranceSums.insuranceSum);
+        $("#insuranceSum").html(chooseInsuranceSums.insuranceSum);
         $("#riskStroke").html(scenarioObject.riskStroke);
-        $("#insuranceCost").val(chooseInsuranceSums.cost);
+        $("#insuranceCost").html(chooseInsuranceSums.cost);
         $("#ageRange").html(scenarioObject.ageRange);
+
+        $("input[name=insuranceSum]").val(parseInt(chooseInsuranceSums.insuranceSum.replace(/\s/g,'')));
+        $("input[name=insuranceCost]").val(parseInt(chooseInsuranceSums.cost.replace(/\s/g,'')));
     }
 
     //создание элементов для страницы 4
