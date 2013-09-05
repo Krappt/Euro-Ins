@@ -234,7 +234,7 @@
                 <div>Электронный полис будет выписан в формате PDF</div>
             </div>
             <div id="page4Middle">
-                <div class="title3">Страхователь (лицо старше 18 лет, опалчивающее полис)</div>
+                <div class="title3">Страхователь (лицо старше 18 лет, оплачивающее полис)</div>
 
                 <div class="isInsurerCheckBoxGroup">
                     <input type="checkbox" id="isInsurer" checked/>
