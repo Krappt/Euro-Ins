@@ -112,7 +112,7 @@ this == ((200/2)-parseInt(offsetHeight)/2) <0 ? style.marginTop="0" : style.marg
 
 #calc .paymentIcon {background:url('../img/pay.png'); width:135px; height:33px; float: left; margin-left: 250px}
 
-#calc {width: 691px; height: 751px}
+#calc {width: 691px}
 #calc > div, #calc form > div { background: #115399; position: relative}
 
 #calc #page1 {display: block}

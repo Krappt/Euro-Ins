@@ -119,6 +119,8 @@ $(document).ready(function () {
 
         //добавление хинта
         $("#page2MainHint").html(scenarioObject.stringTip);
+
+        setSizes();
     }
 
     //создание элементов для страницы 3
@@ -146,8 +148,14 @@ $(document).ready(function () {
         $("#insuranceCost").html(chooseInsuranceSums.cost);
         $("#ageRange").html(scenarioObject.ageRange);
 
-        $("input[name=insuranceSum]").val(parseInt(chooseInsuranceSums.insuranceSum.replace(/\s/g,'')));
-        $("input[name=insuranceCost]").val(parseInt(chooseInsuranceSums.cost.replace(/\s/g,'')));
+        //парсинг строк с суммами и их перевод в формат int
+
+        var regExp = new RegExp( /\s/g,''); //очистка строки от пробелов
+
+        $("input[name=insuranceSum]").val(parseInt(chooseInsuranceSums.insuranceSum.replace(regExp)));
+        $("input[name=insuranceCost]").val(parseInt(chooseInsuranceSums.cost.replace(regExp)));
+
+        setSizes();
     }
 
     //создание элементов для страницы 4
@@ -187,6 +195,8 @@ $(document).ready(function () {
             page4.show();
         }
         else $(thisElem).siblings(".error").html(errors.page3GlobalError);
+
+        setSizes();
     }
 
     //отправка данных
@@ -200,6 +210,8 @@ $(document).ready(function () {
             document.getElementById('sendRequest').submit();
         }
         else $(".globalError").html(errors.lastError);
+
+        setSizes();
     }
 
     /**
@@ -265,6 +277,17 @@ $(document).ready(function () {
             }
         });
     }
+
+    //динамическое изменение размера с использование postmessage
+
+    var parent_url = decodeURIComponent( document.location.hash.replace( /^#/, '' ) );
+
+    function setSizes() {
+            var cont = $("#calc");
+            XD.postMessage(cont.outerHeight( true )+","+cont.outerWidth( true ), parent_url, parent );
+    }
+
+    setSizes();
 });
 
 //обработчик ошибок
