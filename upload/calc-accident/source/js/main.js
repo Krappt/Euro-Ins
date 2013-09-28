@@ -150,10 +150,8 @@ $(document).ready(function () {
 
         //парсинг строк с суммами и их перевод в формат int
 
-        var regExp = new RegExp( /\s/g,''); //очистка строки от пробелов
-
-        $("input[name=insuranceSum]").val(parseInt(chooseInsuranceSums.insuranceSum.replace(regExp)));
-        $("input[name=insuranceCost]").val(parseInt(chooseInsuranceSums.cost.replace(regExp)));
+        $("input[name=insuranceSum]").val(parseInt(chooseInsuranceSums.insuranceSum.replace(/\s/g,'')));
+        $("input[name=insuranceCost]").val(parseInt(chooseInsuranceSums.cost.replace(/\s/g,'')));
 
         setSizes();
     }

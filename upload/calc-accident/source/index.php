@@ -11,7 +11,7 @@
         globalDate = new Date(realtime * 1000);
     </script>
     <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="http://euro-ins.gworks.ru/calc/js/postmessage.js"></script>
+    <script src="http://euro-ins.ru/calc/js/postmessage.js"></script>
     <script src="js/data.js"></script>
     <script src="js/date.js"></script>
     <script src="js/main.js"></script>
