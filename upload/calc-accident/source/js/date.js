@@ -22,6 +22,13 @@ $(document).ready(function () {
         currMonth = (currDate.getMonth() + 1),
         currYear = currDate.getFullYear();
 
+    //для выбора стартовой даты
+    var beginDate = new Date();
+    beginDate.setDate( beginDate.getDate() + numMaxDays );
+    var beginDay = beginDate.getDate();
+    var beginMonth = (beginDate.getMonth() + 1);
+    var beginYear = beginDate.getFullYear();
+
     var maxDate = new Date();
         maxDate.setTime(globalDate.getTime() + 366 * 86400000);
 
@@ -35,10 +42,9 @@ $(document).ready(function () {
                 j;
 
             if($(this).hasClass("dateStartPolicy")){
-
-                for (j = currYear; j <= currYear+numDateMax; j++) elemYear.append("<option value='"+j+"'>"+j+"</option>");
-                fillMonths(elemMonth,currMonth,months.length);
-                fillDays(elemDay,days, 1, currDay+numMaxDays);
+                for (j = beginYear; j <= beginYear+numDateMax; j++) elemYear.append("<option value='"+j+"'>"+j+"</option>");
+                fillMonths(elemMonth,beginMonth,months.length);
+                fillDays(elemDay,days, 1, beginDay);
             }
             else {
                 for (j = currYear; j >= birthYearMin; j--) elemYear.append("<option value='"+j+"'>"+j+"</option>");
@@ -47,13 +53,7 @@ $(document).ready(function () {
             }
 
             var convertDate = (((elemDay.val() < 10)?('0' + elemDay.val()): elemDay.val())+ '.' + ((elemMonth.val() < 10)?('0' + elemMonth.val()):elemMonth.val()) + '.' + elemYear.val());
-            var date = new Date(elemYear.val()+"-"+elemMonth.val()+"-"+elemDay.val());
-
-            if ($(this).hasClass("dateSplitInsuredIssueDocument")) dates.insured.issueDocument = date;
-            else if ($(this).hasClass("dateStartPolicy")) dates.startPolicy = date;
-            else if ($(this).hasClass("dateSplitInsuredBirthday")) dates.insured.birthday = date;
-            else if ($(this).hasClass("dateSplitInsurerBirthday")) dates.insurer.birthday = date;
-            else if ($(this).hasClass("dateSplitInsurerIssueDocument")) dates.insurer.birthday = date;
+            createDateObjects($(this),elemYear.val(), elemMonth.val(), elemDay.val());
 
             $(this).siblings("input[type=hidden]").val(convertDate);
         });
@@ -99,16 +99,17 @@ $(document).ready(function () {
             else if (mainClass == "dateSplitYears") {
                 year = elem.val();
                 if(elem.parent().parent().hasClass("dateStartPolicy")) {
-                    month = fillMonths(elem.parent().siblings("div.dateSplitMonth").find("select"),(year == currYear)?currMonth:1,(parseInt(year) == maxDate.getFullYear())?maxDate.getMonth()+1:months.length);
+                    month = fillMonths(elem.parent().siblings("div.dateSplitMonth").find("select"),(year == currYear)?beginMonth:1,(parseInt(year) == maxDate.getFullYear())?maxDate.getMonth()+1:months.length);
                 }
                 else month = elem.parent().siblings("div.dateSplitMonth").find("select").val();
             }
 
             days = getDaysInMonth(parseInt(year), parseInt(month));
             if(elem.parent().parent().hasClass("dateStartPolicy")){
-                if(month == currMonth && year == currYear) minDay = currDay+numMaxDays;
+                if(month == beginMonth && year == beginYear) minDay = beginDay;
                 if(parseInt(month) == maxDate.getMonth()+1 && parseInt(year) == maxDate.getFullYear()) days = maxDate.getDate();
             }
+
             day = fillDays(selectDay, days, selectDay.val(),minDay);
         }
         else {
@@ -117,21 +118,26 @@ $(document).ready(function () {
             year = elem.parent().siblings("div.dateSplitYear").find("select").val();
         }
         concertDate = convertDate(day,month,year);
-        var date = new Date(year+"-"+month+"-"+day);
-
-        if (elem.parent().parent().hasClass("dateSplitInsuredIssueDocument")) dates.insured.issueDocument = date;
-        else if (elem.parent().parent().hasClass("dateStartPolicy")) dates.startPolicy = date;
-        else if (elem.parent().parent().hasClass("dateSplitInsuredBirthday")) dates.insured.birthday = date;
-        else if (elem.parent().parent().hasClass("dateSplitInsurerBirthday")) dates.insurer.birthday = date;
-        else if (elem.parent().parent().hasClass("dateSplitInsurerIssueDocument")) dates.insurer.birthday = date;
+        createDateObjects(elem.parent().parent(),year, month-1, day);
 
         elem.parent().parent().siblings("input[type=hidden]").val(concertDate);
         errorsHandler(elem.parent().parent().siblings("input[type=hidden]"));
     };
 
-    getDaysInMonth = function (year,month) {
+    function createDateObjects(thiselem,year,month,day) {
+        var date = new Date(year,month-1,day);
+        var elem = $(thiselem);
+
+        if (elem.hasClass("dateSplitInsuredIssueDocument")) dates.insured.issueDocument = date;
+        else if (elem.hasClass("dateStartPolicy")) dates.startPolicy = date;
+        else if (elem.hasClass("dateSplitInsuredBirthday")) dates.insured.birthday = date;
+        else if (elem.hasClass("dateSplitInsurerBirthday")) dates.insurer.birthday = date;
+        else if (elem.hasClass("dateSplitInsurerIssueDocument")) dates.insurer.birthday = date;
+    }
+
+    function getDaysInMonth(year,month) {
         return (new Date(year, month, 0)).getDate();
-    };
+    }
 
     function convertDate(day,month,year) {
         return currDate = (((day < 10)?('0' + day): day)+ '.' + ((month < 10)?('0' + month):month) + '.' + year);

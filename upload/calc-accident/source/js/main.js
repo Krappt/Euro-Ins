@@ -1,6 +1,7 @@
 $(document).ready(function () {
     var chooseScenarioNumber;
     var chooseInsuranceSums = {};
+    var selectedSport = [];
 
     "use strict";
 
@@ -14,6 +15,22 @@ $(document).ready(function () {
     //клик на кнопку "для себя" для выбора сценария №2
     $(".forHimself").click(function () {
         createPage2("2")
+    });
+
+    //клик на кнопку "добавить спорт"
+    $("#addSportButton").click(function () {
+        $("#page2").hide();
+        $("#page2dot1").show();
+
+        setSizes();
+    });
+
+    //клик на кнопку закрытия окна с выбором спорта
+    $("#endChooseSports").click(function () {
+        $("#page2dot1").hide();
+        $("#page2").show();
+
+        setSizes();
     });
 
     //клик на кнопку выбора программы страхования №1 и №2
@@ -41,18 +58,20 @@ $(document).ready(function () {
     });
 
     //клик на чекбокс
-    $("input[type=checkbox]").click(function () {
+    $("input[type=checkbox]").siblings("label").on('click',function () {
         checkBoxRun(this);
     });
 
     function checkBoxRun(thiselem) {
-        if ($(thiselem).prop("checked")) {
-            $(thiselem).siblings("label").addClass("selected");
-            if($(thiselem).parent().hasClass("isInsurerCheckBoxGroup")) toggleDisabledFieldsOnPage4(true);
+        var elem = $(thiselem);
+
+        if (!elem.hasClass("selected")) {
+            elem.addClass("selected");
+            if(elem.parent().hasClass("isInsurerCheckBoxGroup")) toggleDisabledFieldsOnPage4(true);
         }
-        else if(!$(thiselem).prop("checked")) {
-            $(thiselem).siblings("label").removeClass("selected");
-            if($(thiselem).parent().hasClass("isInsurerCheckBoxGroup")) toggleDisabledFieldsOnPage4(false);
+        else if(elem.hasClass("selected")) {
+            elem.removeClass("selected");
+            if(elem.parent().hasClass("isInsurerCheckBoxGroup")) toggleDisabledFieldsOnPage4(false);
         }
     }
 
@@ -80,7 +99,7 @@ $(document).ready(function () {
                 p.find('input:checked').parent()
                     .find('label.radio').addClass('selected');
 
-                p.find('input[type="radio"]').on('click',function(){
+                p.find('input[type="radio"]').siblings("label.radio").on('click',function(){
                     p.find('label.selected').removeClass('selected');
                     $(this).parent().find('label.radio').addClass('selected');
                 });
@@ -123,9 +142,35 @@ $(document).ready(function () {
         setSizes();
     }
 
+    //создание страницы со списком видов спорта
+    function createPage2dot1() {
+        sportList.sort();
+
+        createPage2dot1Column(0, parseInt(sportList.length/2), $("#sportListLeft"));
+        createPage2dot1Column(parseInt(sportList.length/2), sportList.length, $("#sportListRight"));
+    }
+
+    function createPage2dot1Column(start, end, elem) {
+        for (var i = start; i < end; i++){
+            elem.append("<div></div>");
+
+            var li = elem.find("div:last-child");
+
+            li.append('<input type="checkbox" id="sport_'+i+'" class="checkBoxMini"/>');
+            li.append('<label for="sport_'+i+'" class="title2">'+sportList[i]+'</label>');
+            li.find("label").on("click",function () {
+                checkBoxRun(this);
+                changeSportList(this);
+            });
+        }
+    }
+
+    createPage2dot1();
+
     //создание элементов для страницы 3
     function createPage3(thisElem){
         var scenarioObject;
+        var sportStroke;
 
         if(chooseScenarioNumber == "1") {
             $(".dateSplitInsuredBirthday").siblings("input[type=hidden]").addClass("scenario1InsuredBirthday");
@@ -143,10 +188,14 @@ $(document).ready(function () {
         $("#page2").hide();
         $("#page3").show();
 
+        sportStroke = $("#sportStroke");
+
         $("#insuranceSum").html(chooseInsuranceSums.insuranceSum);
         $("#riskStroke").html(scenarioObject.riskStroke);
+        if(selectedSport.length > 0) sportStroke.html(selectedSport.join(', ')+".");
         $("#insuranceCost").html(chooseInsuranceSums.cost);
         $("#ageRange").html(scenarioObject.ageRange);
+        $("input[name=sport]").val(sportStroke.html());
 
         //парсинг строк с суммами и их перевод в формат int
 
@@ -178,6 +227,7 @@ $(document).ready(function () {
 
             $("#insuranceSumText").html(chooseInsuranceSums.insuranceSum);
             $("#policyCost").html(chooseInsuranceSums.cost);
+
             $("#startPolicy").html(dates.startPolicy.getDate()+" "+months2[dates.startPolicy.getMonth()]+" "+dates.startPolicy.getFullYear());
             $("#endPolicy").html(dates.endPolicy.getDate()+" "+months2[dates.endPolicy.getMonth()]+" "+dates.endPolicy.getFullYear());
 
@@ -197,11 +247,46 @@ $(document).ready(function () {
         setSizes();
     }
 
+    //манипуляции со списком выбранного спорта
+    function changeSportList(thiselem) {
+        var name = $(thiselem).html();
+        var sportBird = $("#sportBird");
+        var cost1 = $("#page2cost1");
+        var cost2 = $("#page2cost2");
+        var isRemove = false;
+        var scenarioObject;
+
+        for (var item in selectedSport) {
+            if(selectedSport.hasOwnProperty(item)) {
+                if(selectedSport[item] == name) {
+                    selectedSport.splice(item,1);
+                    isRemove = true;
+                }
+            }
+        }
+
+        if(!isRemove) selectedSport.push(name);
+
+        if(chooseScenarioNumber == "1") scenarioObject = scenarioForChildren.page2;
+        else scenarioObject = scenarioForHimself.page2;
+
+        if(selectedSport.length > 0) {
+            cost1.html((parseInt(scenarioObject.cost1) * 2) + " руб.");
+            cost2.html((parseInt(scenarioObject.cost2) * 2) + " руб.");
+            sportBird.show();
+        }
+        else {
+            cost1.html(scenarioObject.cost1);
+            cost2.html(scenarioObject.cost2);
+            sportBird.hide();
+        }
+    }
+
     //отправка данных
     function send() {
         var isError = checkErrors("#page4Middle");
 
-        if(!isError && $("#agreement").prop("checked")) {
+        if(!isError && $("#agreement").siblings("label").hasClass("selected")) {
             $("input[disabled=disabled]").each(function(){
                 $(this).removeAttr("disabled");
             });

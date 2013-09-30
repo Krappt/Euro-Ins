@@ -44,31 +44,56 @@
             поддержку в критических ситуациях.</p>
     </div>
     <div id="page2">
-        <div class="title">Страхование от несчастного случая и болезней</div>
-        <div class="title2">Теперь Вы можете защитить себя и своих близких от возможных финансовых потреть, произошедших
-            из-за несчастного случая или болезни.
-        </div>
-        <div class="title2">Пробрести полис онлайн можно всего за 5 минут, не выходя из дома.</div>
-        <div class="title3">Выберите программу страхования:</div>
-        <div class="buttonBlock">
-            <div class="buttonLink insurance1 page2buttons">
-                <div class="multiLine"><span>Страховая сумма </span><span id="page2InsuranceSum1"></span><br/>
-                    <span>Стоимость полиса </span><span id="page2cost1"></span></div>
-            </div>
-        </div>
-        <div class="buttonBlock">
-            <div class="buttonLink insurance2 page2buttons">
-                <div class="multiLine"><span>Страховая сумма </span><span id="page2InsuranceSum2"></span><br/>
-                    <span>Стоимость полиса </span><span id="page2cost2"></span></div>
-            </div>
-        </div>
-        <span id="hint page2MainHint"></span>
+    <div id="page2Top">
+            <div class="title">Страхование от несчастного случая и болезней</div>
+                 <div class="title2">Теперь Вы можете защитить себя и своих близких от возможных финансовых потреть, произошедших
+                     из-за несчастного случая или болезни.
+                 </div>
+                 <div class="title2">Пробрести полис онлайн можно всего за 5 минут, не выходя из дома.</div>
+                 <div class="title3">Выберите программу страхования:</div>
+                 <div class="buttonBlock">
+                     <div class="buttonLink insurance1 page2buttons">
+                         <div class="multiLine"><span>Страховая сумма </span><span id="page2InsuranceSum1"></span><br/>
+                             <span>Стоимость полиса </span><span id="page2cost1"></span></div>
+                     </div>
+                 </div>
+                 <div class="buttonBlock">
+                     <div class="buttonLink insurance2 page2buttons">
+                         <div class="multiLine"><span>Страховая сумма </span><span id="page2InsuranceSum2"></span><br/>
+                             <span>Стоимость полиса </span><span id="page2cost2"></span></div>
+                     </div>
+                 </div>
+                 <div id="addSportLine">
+                 <a id="addSportButton">добавить спорт</a><span> - Полис для спортсменов-любителей.</span><span class="birdMini" id="sportBird"></span>
+                 </div>
 
-        <div class="title3">Программа включает защиту от рисков:</div>
-        <div>
-            <ul id="riskList">
-            </ul>
+    </div>
+    <div id="page2Bottom">
+            <div id="page2MainHint" class="hint2"></div>
+
+            <div class="title3">Программа включает защиту от рисков:</div>
+            <div>
+                <ul id="riskList">
+                </ul>
+            </div>
+    </div>
+    </div>
+    <div id="page2dot1">
+        <div id="page2dot1Inside">
+        <div class="title3">Краткосрочный полис для спортсменов-любителей</div>
+        <div class="title3">Выберите вид спорта</div>
+        <div id="sportList">
+           <div id="sportListLeft">
+           </div>
+           <div id="sportListRight">
+           </div>
+           <div style="clear:both"></div>
         </div>
+        <div class="bird">
+            <a id="endChooseSports"></a>
+        </div>
+        </div>
+
     </div>
     <form method="POST" class="fieldGroup" action="handler.php" id="sendRequest">
         <div id="page3">
@@ -76,9 +101,11 @@
                   <div class="title3">Ваша страховая программа:</div>
                                <div><span>Страховая сумма - </span><span id="insuranceSum" class="title2"></span></div>
                                <div><span id="riskStroke"> </span></div>
+                               <div>Спорт: <span id="sportStroke"> Без занятий спортом.</span></div>
                                <div id="finalCostWrap" class="title2"><span>Стоимость страхования: </span><span id="insuranceCost"> </span>
                                <input type="hidden" name="insuranceSum"/>
                                <input type="hidden" name="insuranceCost"/>
+                               <input type="hidden" name="sport"/>
                   </div>
             </div>
             <div id="page3Middle">
@@ -204,7 +231,7 @@
         </div>
         <div id="page4">
             <div id="page4Top">
-                <table>
+                <table cellspacing="10">
                     <tr>
                         <td>
                             <div id="insuredFullName" class="title3"></div>
@@ -237,8 +264,8 @@
                 <div class="title3">Страхователь (лицо старше 18 лет, оплачивающее полис)</div>
 
                 <div class="isInsurerCheckBoxGroup">
-                    <input type="checkbox" id="isInsurer" checked/>
-                    <label for="isInsurer">Зарегистрированный является страхователем (если Вы страхуетесь сами)</label>
+                    <input type="checkbox" id="isInsurer" class="checkBoxNormal" checked/>
+                    <label for="isInsurer" class="selected">Зарегистрированный является страхователем (если Вы страхуетесь сами)</label>
                 </div>
 
                 <div class="inputGroupLeft">
@@ -337,7 +364,7 @@
                     <div id="agreementGroupLeft">Ознакомьтесь, пожалуйста, с текстом Пользовательского соглашения <a class="openPopUp popUpAgreement">здесь</a> и поставьте «галочку» в поле для принятия условий соглашения</div>
 
                     <div class="agreementCheckBoxGroup">
-                        <input type="checkbox" id="agreement"/>
+                        <input type="checkbox" id="agreement" class="checkBoxNormal"/>
                         <label for="agreement"></label>
                     </div>
                 </div>
