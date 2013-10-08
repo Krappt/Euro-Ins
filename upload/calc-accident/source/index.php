@@ -18,7 +18,7 @@
 </head>
 <body>
 <div id="calc">
-    <div id="page1">
+    <div id="page1" class="page">
         <div class="title">Страхование от несчастного случая и болезней</div>
         <div class="title2">Теперь Вы можете защитить себя и своих близких от возможных финансовых потреть, произошедших
             из-за несчастного случая или болезни.
@@ -37,13 +37,13 @@
             </div>
             <span class="hint">от 18 до 64 лет</span>
         </div>
-        <p>Цель программ страхования от несчастных случаев – это финансовая поддержка в трудных жизненных ситуациях,
-            связанных с изменением состояния Вашего здоровья и здоровья Ваших близких.</p>
+        <div class="title2">Цель программ страхования от несчастных случаев – это финансовая поддержка в трудных жизненных ситуациях,
+            связанных с изменением состояния Вашего здоровья и здоровья Ваших близких.</div>
 
         <p>Страховые выплаты компенсируют финансовые расходы на лечение и последующую реабилитацию, а также окажут
             поддержку в критических ситуациях.</p>
     </div>
-    <div id="page2">
+    <div id="page2" class="page">
     <div id="page2Top">
             <div class="title">Страхование от несчастного случая и болезней</div>
                  <div class="title2">Теперь Вы можете защитить себя и своих близких от возможных финансовых потреть, произошедших
@@ -53,14 +53,14 @@
                  <div class="title3">Выберите программу страхования:</div>
                  <div class="buttonBlock">
                      <div class="buttonLink insurance1 page2buttons">
-                         <div class="multiLine"><span>Страховая сумма </span><span id="page2InsuranceSum1"></span><br/>
-                             <span>Стоимость полиса </span><span id="page2cost1"></span></div>
+                         <div class="multiLine"><span>Страховая сумма </span><span id="page2InsuranceSum1" class="sums"></span><br/>
+                             <span>Стоимость полиса </span><span id="page2cost1" class="sums"></span></div>
                      </div>
                  </div>
                  <div class="buttonBlock">
                      <div class="buttonLink insurance2 page2buttons">
-                         <div class="multiLine"><span>Страховая сумма </span><span id="page2InsuranceSum2"></span><br/>
-                             <span>Стоимость полиса </span><span id="page2cost2"></span></div>
+                         <div class="multiLine"><span>Страховая сумма </span><span id="page2InsuranceSum2" class="sums"></span><br/>
+                             <span>Стоимость полиса </span><span id="page2cost2" class="sums"></span></div>
                      </div>
                  </div>
                  <div id="addSportLine">
@@ -73,12 +73,12 @@
 
             <div class="title3">Программа включает защиту от рисков:</div>
             <div>
-                <ul id="riskList">
+                <ul id="riskList" class="title2">
                 </ul>
             </div>
     </div>
     </div>
-    <div id="page2dot1">
+    <div id="page2dot1" class="page">
         <div id="page2dot1Inside">
         <div class="title3">Краткосрочный полис для спортсменов-любителей</div>
         <div class="title3">Выберите вид спорта</div>
@@ -96,7 +96,7 @@
 
     </div>
     <form method="POST" class="fieldGroup" action="handler.php" id="sendRequest">
-        <div id="page3">
+        <div id="page3" class="page">
             <div id="page3Top">
                   <div class="title3">Ваша страховая программа:</div>
                                <div><span>Страховая сумма - </span><span id="insuranceSum" class="title2"></span></div>
@@ -229,12 +229,12 @@
 
             </div>
         </div>
-        <div id="page4">
+        <div id="page4" class="page">
             <div id="page4Top">
                 <table cellspacing="10">
                     <tr>
                         <td>
-                            <div id="insuredFullName" class="title3"></div>
+                            <div id="insuredFullName" class="title3 personNames"></div>
                             <div><span>застрахованный, </span><span id="insuredAge"></span></div>
                         </td>
                         <td>
@@ -405,7 +405,7 @@
             </div>
         </div>
     </form>
-    <div id="page5">
+    <div id="page5" class="page">
         <div id="page5Top"></div>
         <div id="page5Middle">
             <div class="title3 requestNumber">Заказ № <span>10395946-0001</span> успешно оплачен!

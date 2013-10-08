@@ -1,4 +1,5 @@
-body {margin: 0; color:#ffffff; font-family:Verdana, Geneva, sans-serif; font-size: 13px}
+body {margin: 0; color:#ffffff; font-family:Verdana, Geneva, sans-serif; font-size: 13px;}
+
 #calc > div > p {margin-bottom: 30px;}
 #calc ul {text-align: left; list-style: disc inside; padding-left: 0}
 
@@ -16,7 +17,7 @@ body {margin: 0; color:#ffffff; font-family:Verdana, Geneva, sans-serif; font-si
 
 #calc input {font-family:Verdana, Geneva, sans-serif;}
 
-#calc .title, #calc .policyCost {font-size: 21px}
+#calc .title, #calc .policyCost {font-size: 21px; font-weight: bold}
 #calc .title2 {font-size: 15px}
 #calc .title3 {font-size: 17px}
 #calc .policyCost, #calc .requestNumber {font-weight: bold}
@@ -24,10 +25,28 @@ body {margin: 0; color:#ffffff; font-family:Verdana, Geneva, sans-serif; font-si
 #calc .hint2 {font-size: 15px;}
 #calc .subtext { display:block; font-size:14px; text-align:right; margin-top:5px;}
 #calc .error {font-size: 10px; color: #EDF122;position: absolute;left: 0;top: -15px;}
+#calc .sums{font-size: 16px}
+#calc .personNames {text-transform: uppercase}
 
-#calc .popUpOutside {position: absolute; z-index: 10; width: 100%; height: 100%; top:0;left: 0; display:none; }
-#calc .popUpBg {background-color: #000000; width: 100%; height: 100%; z-index: 11; top:0;left: 0;opacity: 0.3; filter: alpha(opacity=0.3);}
-#calc .popUpInside {background:#5da3f5; border:1px solid #ffffff; padding:0 30px 0 30px; position:absolute; top:25%; width:610px; left:50%; margin-left: -336px; z-index:12;text-align: center}
+#calc .popUpOutside { display:none; }
+#calc .popUpBg {
+    background-color: #000000;
+    left: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.3)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity = 0.3);
+    filter: alpha(opacity=0.3);
+    moz-opacity: 0.3;
+    -khtml-opacity: 0.3;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;}
+#calc .popUpInside {overflow:auto; background:#5da3f5; border:1px solid #ffffff; padding:0 30px 0 30px; width:610px; text-align: center; position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 100000;}
 *:first-child+html #calc .popUpInside { /* хак для ие7 */
     padding-top: 10px;
 }
@@ -45,7 +64,8 @@ body {margin: 0; color:#ffffff; font-family:Verdana, Geneva, sans-serif; font-si
 #calc .button { background-color:#edf121; border:1px solid #ffffff;width:198px; height:35px; text-align:center; cursor:pointer;  color:#14559a; font-size:20px;  margin:0 auto;}
 #calc .button:hover {background-color:#ffffff;border:1px solid #5da3f5;}
 
-#calc .fieldLine { margin-bottom: 20px; position: relative; overflow: hidden}
+#calc .fieldLine { margin-bottom: 20px; position: relative;}
+#calc .doubleFields { overflow: hidden; margin-bottom: 20px}
 #calc .field {text-align:center;background: #ffffff; color: #666666;border: #ffffff solid 1px; width: 280px; height: 33px; padding: 0 10px ;font-size: 17px;line-height: 33px;}
 #calc .field[disabled=disabled], #calc .disabled {opacity: 0.5; filter: alpha(opacity=30);}
 #calc .fieldFocus {background: transparent; color: #ffffff; text-align: left}
@@ -63,14 +83,14 @@ body {margin: 0; color:#ffffff; font-family:Verdana, Geneva, sans-serif; font-si
 
 #calc .buttonBlock {display: inline-block; padding-right: 20px; padding-left: 20px; zoom: 1; *display: inline;}
 #calc .buttonLink {background: #ffffff; color: #666666; cursor: pointer; border: #ffffff solid 1px; vertical-align: middle; display: table-cell;}
-
+#calc .buttonLink div.singleLine {font-weight: bold}
 *:first-child+html #calc .buttonLink div.singleLine { /* хак для ие7 */
     display: block;
     z-index: expression(
 runtimeStyle.zIndex = 1,
 this == ((200/2)-parseInt(offsetHeight)/2) <0 ? style.marginTop="0" : style.marginTop=(45/2)-(parseInt(offsetHeight)/2) +'px');
 }
-
+#calc .buttonLink div.multiLine {line-height: 25px}
 *:first-child+html #calc .buttonLink div.multiLine { /* хак для ие7 */
     margin-top: expression((parentNode.offsetHeight.offsetHeight/2)-(parseInt(this.offsetHeight)/2) <0 ? "0" :(parentNode.offsetHeight/2)-(parseInt(this.offsetHeight)/2) +'px');
 }
@@ -134,7 +154,7 @@ this == ((200/2)-parseInt(offsetHeight)/2) <0 ? style.marginTop="0" : style.marg
 #calc {width: 691px}
 #calc > div, #calc form > div { background: #115399; position: relative}
 
-#calc #page1 {display: block}
+#calc #page1 {display: block;}
 #calc #page1, #calc #page2 > div {text-align: center; padding:20px 35px;}
 #calc #page1 > div, #calc #page2 > div > div, #calc #page2dot1 #page2dot1Inside > div, #calc #page3 #page3Top > div, #page3 #page3Bottom > div, #page4 #page4Bottom > div, #calc #page5 #page5Middle > div  {margin-bottom: 20px}
 #calc #page1 > span, #calc #page2 > span {margin-top: -10px; margin-bottom: 20px;}

@@ -50,7 +50,11 @@ $(document).ready(function () {
 
     //триггеры для открытия и закрытия поп-апа
     $(".openPopUp").click(function(){
-        if($(this).hasClass("popUpAgreement")) $("#popUpAgreement").show();
+        if($(this).hasClass("popUpAgreement")) {
+            var elem = $("#popUpAgreement");
+            elem.show();
+            setMaxHeight(elem);
+        }
     });
 
     $(".closePopUp").click(function(){
@@ -106,6 +110,31 @@ $(document).ready(function () {
             });
         };
         $('.radioGroup').fancyRadio();
+
+    //определение максимальной высоты для поп-ап окна и его центрирование
+
+    function setMaxHeight(thiselem) {
+        var isIE7 = document.all && !document.querySelector;
+        var elem = $(thiselem).find(".popUpInside");
+        var parentElem = elem.closest(".page");
+        var elemHeight = elem.outerHeight();
+        var marginTopK = (isIE7)?40:20;
+        var parentHeight = parentElem.height()-((isIE7)?5:marginTopK);
+        var offset = 0;
+
+        elem.css("max-height",(parentElem.outerHeight()-marginTopK)+"px");
+
+        if (elemHeight > parentHeight) offset = -(elemHeight / 2) + ((elemHeight - parentHeight) / 2);
+        else offset = -elemHeight / 2;
+
+
+        //get margin left
+        var marginLeft = -elem.outerWidth() / 2 + 'px';
+        //get margin top
+        var marginTop = offset + 'px';
+        //return updated element
+        elem.css({'margin-left': marginLeft, 'margin-top': marginTop});
+    }
 
     //отрисовка страницы
 
@@ -287,9 +316,11 @@ $(document).ready(function () {
         var isError = checkErrors("#page4Middle");
 
         if(!isError && $("#agreement").siblings("label").hasClass("selected")) {
+            var fieldNames = $(".fieldNames");
             $("input[disabled=disabled]").each(function(){
                 $(this).removeAttr("disabled");
             });
+            fieldNames.val(fieldNames.val().toUpperCase());
             document.getElementById('sendRequest').submit();
         }
         else $(".globalError").html(errors.lastError);
