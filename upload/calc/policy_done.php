@@ -9,6 +9,9 @@
 		ShowGET();
 	}
 
+	// http://stackoverflow.com/questions/9096470/atomically-appending-a-line-to-a-file-and-creating-it-if-it-doesnt-exist
+	file_put_contents(dirname(__FILE__) . '/vpc.log', print_r($_GET, true), FILE_APPEND | LOCK_EX);
+
 	if (VerifyResponse()) {
 		Clear3D();
 		
