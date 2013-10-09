@@ -316,11 +316,15 @@ $(document).ready(function () {
         var isError = checkErrors("#page4Middle");
 
         if(!isError && $("#agreement").siblings("label").hasClass("selected")) {
-            var fieldNames = $(".fieldNames");
+            $(".fieldNames").each(function(){
+                var fieldNames = $(this);
+                fieldNames.val(fieldNames.val().toUpperCase());
+            });
+
             $("input[disabled=disabled]").each(function(){
                 $(this).removeAttr("disabled");
             });
-            fieldNames.val(fieldNames.val().toUpperCase());
+
             document.getElementById('sendRequest').submit();
         }
         else $(".globalError").html(errors.lastError);
