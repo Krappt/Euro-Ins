@@ -993,7 +993,6 @@ $(document).ready(function () {
             $('div#calc_page3_subpage1').hide();
             $('div#calc_page3_subpage2').show();
             $(this).siblings('div.error').html('');
-            $.post('handler.php',$('#registration').serialize(),function(data){});
         }
         else if (checkTotalSum <= 0) $(this).siblings('div.error').html(errorsArr[12]);
         else $(this).siblings('div.error').html(errorsArr[3]);
