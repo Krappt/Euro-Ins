@@ -38,7 +38,7 @@ div.birthday_list span.calc.subtextDate { margin-top:5px}
 div.calc.error {font-size: 10px; margin-top:-15px; color: #EDF122; display:block; position:absolute; visibility: visible}
 div.calc.error.date {margin-top: 5px}
 div.calc.error.phone, div.calc.error.email {margin-top: 0}
-div.calc.error.all { margin-left:227px;margin-top:-15px;}
+div.calc.error.all { margin-left:227px;margin-top:0;}
 div.calc.error.all1 {margin-top:-5px;}
 *:first-child+html div.calc.error.date { margin-left:-55px} /*hack for IE7*/
 *:first-child+html div.calc.error.date0 { margin-top:45px;margin-left:-300px} /*hack for IE7*/
@@ -101,13 +101,14 @@ div#calc_wrap div.calc_page3 div.calc_page3_block.price_block div.value {font-si
 div#calc_wrap div.calc_page3 div.calc_page3_center_subinfo {font-size:10px; clear: both; position:relative; top:-10px; margin-left:20px}
 
 div#calc_wrap div.calc_page3 div.calc_page3_bottom { border-top:solid 2px #FFFFFF; font-size:14px; padding:15px 20px 0px 20px;}
-div#calc_wrap div.calc_page3 div.calc_page3_bottom_line div.calc.error.all {  margin-left:140px;}
+div#calc_wrap div.calc_page3 div#calc_page3_subpage2 div.calc_page3_bottom_line div.calc.error.all {margin-left: 140px; margin-top: -15px;}
 *:first-child+html div#calc_wrap div.calc_page3 div.calc_page3_bottom_line div.calc.error.email { margin-top:60px;margin-left:-290px} /*hack for IE7*/
 *:first-child+html div#calc_wrap div.calc_page3 div.calc_page3_bottom_line div.calc.error.phone { margin-top:60px;margin-left:-290px} /*hack for IE7*/
 div#calc_wrap div.calc_page3 div.calc_page3_bottom div.calc.left_info { text-align:center; width:335px; float:left; padding-top:15px; margin-top:10px; line-height:25px}
 div#calc_wrap div.calc_page3 div.calc_page3_bottom div.calc.right_info { margin-left:345px}
 div#calc_wrap div.calc_page3 div.calc_page3_bottom div.calc.right_info input { margin-top:15px}
 div#calc_wrap div.calc_page3 div.calc_page3_bottom input.address { margin-top:10px; width:616px;margin-left:10px; }
+div#calc_wrap div.calc_page3 div.calc_page3_bottom div.calc.list.insured_list .error {margin-top: 0}
 *:first-child+html div#calc_wrap div.calc_page3 div.calc_page3_bottom div.calc.list.insured_list ul {left:335px; margin-top:51px} /*hack for IE7*/
 div#calc_wrap div.calc_page3 div.calc_page3_bottom_line input[type="button"] { margin-top:20px}
 
@@ -116,14 +117,27 @@ div#calc_wrap div.calc_page3 div.calc.agreement {margin-top:20px; margin-bottom:
 div#calc_wrap div.calc_page3 div.calc.agreement.left {  text-align:center; width:570px;}
 div#calc_wrap div.calc_page3 div.calc.agreement a { color:#FFFFFF; text-decoration: underline}
 div#calc_wrap div.calc_page3 div.calc.agreement a:hover { text-decoration: none}
-div#calc_wrap div.calc_page3 div.calc.agreement.right input[type="checkbox"] { display:block;}
-div#calc_wrap div.calc_page3 div.calc.agreement.right input[type="checkbox"] + label{ width:34px; height:43px;background:url('i/checked.png'); display:block; background-position:0px -76px; cursor:pointer; margin-top:-35px; margin-right:25px; position:relative; z-index:10}
+
+#calc_wrap div.calc_page3 .agreementCheckBoxGroup {float: right}
+#calc_wrap input[type="checkbox"].checkBoxNormal + label {
+    display: block;
+    cursor: pointer;
+    padding-left: 40px;
+    line-height: 43px;
+    height: 43px;
+    background: url('i/checked.png') no-repeat 0 -76px;
+}
+#calc_wrap input[type="checkbox"].checkBoxNormal + label.selected {
+    background-position: 0 1px;
+}
+
+#calc_wrap input[type="checkbox"] { display: none}
+#calc_wrap input[type="checkbox"].checkBoxNormal + label {margin: 0 0 -10px 30px;}
+
 div#calc_wrap div.calc_page3 div.calc.payment_icon {background:url('i/pay.png'); width:135px; height:33px; clear:both; margin:0 auto;}
 div#calc_wrap div.calc_page3 p.calc.payment_info { font-size:11px; text-align:center}
-div#calc_wrap div.calc_page3 div.calc_page3_bottom_line {padding-top: 0}
-div#calc_wrap div.calc_page3 div.calc_page3_bottom_line input#next + div.calc.error.all {  margin-left:140px;}
-div#calc_wrap div.calc_page3 div#agreement_block {background:#5da3f5; border:1px solid #ffffff; padding:0 30px 0 30px; position:absolute; top:13px; right:16px; width:610px; z-index:11; display:none}
-div#calc_wrap div.calc_page3 div#agreement_block p { text-align:center}
+div#calc_wrap div.calc_page3 div.calc_page3_bottom_line {padding-top: 2px;}
+div#calc_wrap div.calc_page3 div.calc_page3_bottom_line input#next + div.calc.error.all { margin-left: 140px }
 
 div#calc_wrap div.calc_page4 { height:630px}
 div#calc_wrap div.calc_page4_head { height:130px}
@@ -134,3 +148,26 @@ div.calc.number_polis.center { width:550px; margin:0 auto}
 div#calc_wrap div.bird.fill a { width:67px; height:65px;background:url('i/bird_fill.png') no-repeat; margin:0 auto; display:block; margin:0 auto; margin-top:30px; margin-bottom:15px}
 div#calc_wrap div.calc_page4_bottom { border-top:solid 2px #FFFFFF; padding-top:30px; text-align:center}
 div#calc_wrap div.calc_page4_bottom > div { width:620px; margin:0 auto}
+
+#calc_wrap .popUpOutside { display:none; }
+#calc_wrap .popUpBg {
+    background-color: #000000;
+    left: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.3)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity = 0.3);
+    filter: alpha(opacity=0.3);
+    moz-opacity: 0.3;
+    -khtml-opacity: 0.3;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;}
+#calc_wrap .popUpInside {overflow:auto; background:#5da3f5; border:1px solid #ffffff; padding:0 30px 0 30px; width:610px; text-align: center; position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 100000;}
+*:first-child+html #calc .popUpInside { /* хак для ие7 */
+    padding-top: 10px;
+}

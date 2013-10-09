@@ -76,7 +76,7 @@
 <body>
 <div id="calc_wrap" class="calc">
 
-<div class="calc_page1" style="display:block">
+<div class="calc_page1 page" style="display:block">
 <?php
 	if (isset($_GET['PartnerID'])) { echo '<form id="registration" action="policy.php?PartnerID='.$_GET['PartnerID'].'" method="post">'; } 
 		else { echo '<form id="registration" action="policy.php" method="post">'; }
@@ -252,7 +252,7 @@
             <input class="calc button" type="button" id="calculate" value="Рассчитать"/>
         </div>
 </div>
-<div class="calc_page2" style="display:none">
+<div class="calc_page2 page" style="display:none">
     <div class="calc_page2_head calc_subpage">
         <h4>Заказать Полис для выезжающих за рубеж</h4>
         <span>Предлагаем Вам рассчитать стоимость Полиса для выезжающих за рубеж и приобрести его онлайн всего за 5 минут, не выходя из дома</span>
@@ -278,7 +278,7 @@
         </div>
     </div>
 </div>
-<div class="calc_page3" style=" display:none">
+<div class="calc_page3 page" style=" display:none">
     <div class="calc_page3_top">
         <div class="calc_page3_block">
             <div class="calc value country"></div>
@@ -379,10 +379,13 @@
     </div>
     <div class="calc_page3_bottom" id="calc_page3_subpage2" style="display:none">
         <div class="calc_page3_bottom_head">Заказать Полис для выезжающих за рубеж</div>
-        <div class="calc agreement left">Ознакомьтесь, пожалуйста, с текстом Пользовательского соглашения <a onclick="$('#agreement_block').show();">здесь</a> и поставьте «галочку» в поле для принятия условий соглашения</div>
-        <div class="calc agreement right"><input type="checkbox" id="agreement_check"/><label for="agreement_check"
-                                                                                              onclick="checkAgr(this);"></label>
+        <div class="calc agreement left">Ознакомьтесь, пожалуйста, с текстом Пользовательского соглашения <a class="openPopUp popUpAgreement">здесь</a> и поставьте «галочку» в поле для принятия условий соглашения</div>
+
+        <div class="agreementCheckBoxGroup">
+             <input type="checkbox" id="agreement" class="checkBoxNormal"/>
+             <label for="agreement"></label>
         </div>
+
         <div class="calc payment_icon"></div>
         <p class="calc payment_info">Нажав кнопку «Далее», Вы будете перенаправлены на страницу платежной системы. После оплаты дождитесь перехода на страницу оформления РСО Евроинс</p>
 
@@ -394,14 +397,18 @@
 
             </form>
         </div>
-        <div id="agreement_block">
-			<p>Настоящим в порядке ч.2 ст.434 Гражданского кодекса Российской Федерации подтверждаю достижение соглашения сторон о признании договора страхования заключенным в письменной форме посредством электронной связи.</p>
-			<p>Действуя от своего имени и в своем интересе как страхователь, подтверждаю, что надлежащим образом ознакомлен и согласен с текстом и условиями «<a target="_blank" href="http://euro-ins.ru/files/pravila_vzr.doc">Правил комплексного страхования граждан, выезжающих с места постоянного проживания</a>» (от 15.05.2013 г., адрес в Интернете: http://euro-ins.ru/files/pravila_vzr.doc), в подтверждение чего заключаю настоящий договор, текст указанных правил страхования получил. Руководствуясь ч.2 ст. 160 Гражданского кодекса Российской Федерации, подтверждаю достижение соглашения сторон о допустимости использования факсимильного воспроизведения подписей и оттисков печатей с помощью средств копирования. В соответствии с Федеральным законом «О персональных данных» от 27.07.2006 N 152-ФЗ предоставляю свое согласие на обработку персональных данных включая все операции с персональными данными предусмотренные п.З ст.З закона на срок действия договора страхования и в течение 5 (пяти) лет с даты его прекращения».</p>
-			<p>Также подтверждаю, что  ознакомлен и согласен с текстом и условиями <a target="_blank" href="http://www.euro-ins.ru/files/public_offer.docx">Публичной оферты</a> о порядке заключения ООО «РСО «ЕВРОИНС» договоров комбинированного страхования граждан, выезжающих с места постоянного проживания (адрес в Интернете: http://www.euro-ins.ru/files/public_offer.docx).</p>
-            <div class="bird">
-                <a id="bird_to_page3" onclick="$('#agreement_block').hide();"></a>
-            </div>
-        </div>
+
+         <div class="popUpOutside" id="popUpAgreement">
+                            <div class="popUpBg"></div>
+                            <div class="popUpInside">
+                                    <p>Настоящим в порядке ч.2 ст.434 Гражданского кодекса Российской Федерации подтверждаю достижение соглашения сторон о признании договора страхования заключенным в письменной форме посредством электронной связи.</p>
+                                    <p>Действуя от своего имени и в своем интересе как страхователь, подтверждаю, что надлежащим образом ознакомлен и согласен с текстом и условиями «<a target="_blank" href="http://euro-ins.ru/files/pravila_vzr.doc">Правил комплексного страхования граждан, выезжающих с места постоянного проживания</a>» (от 15.05.2013 г., адрес в Интернете: http://euro-ins.ru/files/pravila_vzr.doc), в подтверждение чего заключаю настоящий договор, текст указанных правил страхования получил. Руководствуясь ч.2 ст. 160 Гражданского кодекса Российской Федерации, подтверждаю достижение соглашения сторон о допустимости использования факсимильного воспроизведения подписей и оттисков печатей с помощью средств копирования. В соответствии с Федеральным законом «О персональных данных» от 27.07.2006 N 152-ФЗ предоставляю свое согласие на обработку персональных данных включая все операции с персональными данными предусмотренные п.З ст.З закона на срок действия договора страхования и в течение 5 (пяти) лет с даты его прекращения».</p>
+                                    <p>Также подтверждаю, что  ознакомлен и согласен с текстом и условиями <a target="_blank" href="http://www.euro-ins.ru/files/public_offer.docx">Публичной оферты</a> о порядке заключения ООО «РСО «ЕВРОИНС» договоров комбинированного страхования граждан, выезжающих с места постоянного проживания (адрес в Интернете: http://www.euro-ins.ru/files/public_offer.docx).</p>
+                                <div class="bird">
+                                    <a class="closePopUp popUpAgreement"></a>
+                                </div>
+                            </div>
+                        </div>
 
     </div>
 </div>

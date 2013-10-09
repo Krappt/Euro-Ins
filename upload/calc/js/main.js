@@ -36,6 +36,64 @@ $(document).ready(function () {
     var clickflag = 0;
     var valueli;
     var focusflag = 0;
+
+    //триггеры для открытия и закрытия поп-апа
+    $(".openPopUp").click(function(){
+        if($(this).hasClass("popUpAgreement")) {
+            var elem = $("#popUpAgreement");
+            elem.show();
+            setMaxHeight(elem);
+        }
+    });
+
+    $(".closePopUp").click(function(){
+        if($(this).hasClass("popUpAgreement")) $("#popUpAgreement").hide();
+    });
+
+    //определение максимальной высоты для поп-ап окна и его центрирование
+
+    function setMaxHeight(thiselem) {
+        var isIE7 = document.all && !document.querySelector;
+        var elem = $(thiselem).find(".popUpInside");
+        var parentElem = elem.closest(".page");
+        var elemHeight = elem.outerHeight();
+        var marginTopK = (isIE7)?40:20;
+        var parentHeight = parentElem.height()-((isIE7)?5:marginTopK);
+        var offset = 0;
+
+        elem.css("max-height",(parentElem.outerHeight()-marginTopK)+"px");
+
+        if (elemHeight > parentHeight) offset = -(elemHeight / 2) + ((elemHeight - parentHeight) / 2);
+        else offset = -elemHeight / 2;
+
+
+        //get margin left
+        var marginLeft = -elem.outerWidth() / 2 + 'px';
+        //get margin top
+        var marginTop = offset + 'px';
+        //return updated element
+        elem.css({'margin-left': marginLeft, 'margin-top': marginTop});
+    }
+
+    //клик на чекбокс
+    $("input[type=checkbox]").siblings("label").on('click',function () {
+        checkBoxRun(this);
+    });
+
+    function checkBoxRun(thiselem) {
+        var elem = $(thiselem);
+
+        if (!elem.hasClass("selected")) {
+            elem.addClass("selected");
+            if(elem.parent().hasClass("isInsurerCheckBoxGroup")) toggleDisabledFieldsOnPage4(true);
+        }
+        else if(elem.hasClass("selected")) {
+            elem.removeClass("selected");
+            if(elem.parent().hasClass("isInsurerCheckBoxGroup")) toggleDisabledFieldsOnPage4(false);
+        }
+    }
+
+
 //hover list elements
     $(".calc.list ul li").hover(function () {
         $(this).css('color', '#000000')
@@ -928,12 +986,14 @@ $(document).ready(function () {
         }
         //human
         $('div#calc_human_wrap div.second').remove();
+        $('div.calc_page3 input.insured').val($('input[name="last_name_0"]').val() + ' ' + $('input[name="first_name_0"]').val());
         $($("div.calc_subpage.totalhuman")).each(function (i) {
             var lastname = $(this).find('input.lastname').val(),
                 thissumma = $(this).find('input.summa').val(),
                 thisrisks = $(this).find('input.risk').val();
             firstname = $(this).find('input.firstname').val();
-
+            $(this).find('input.lastname').val(lastname.toUpperCase());
+            $(this).find('input.firstname').val(firstname.toUpperCase());
             thisparent = 'div.calc_page3 div#subpage_human_';
             thisdate = selectedBirthdays[i];
             tempdate = CalcDate(nowDate, thisdate);
@@ -946,7 +1006,7 @@ $(document).ready(function () {
                 $('div#calc_human_wrap').append('<div class="calc_subpage_human second" id="subpage_human_' + i + '"></div>');
                 $(thisparent + i).append(thisappend);
             }
-            $(thisparent + i + ' div.calc.value.name').html(lastname + ' ' + firstname);
+            $(thisparent + i + ' div.calc.value.name').html((lastname + ' ' + firstname).toUpperCase());
             $(thisparent + i + ' span.calc.human_age').html(finalage);
             $(thisparent + i + ' div.calc.summa').html(thissumma);
             if (thisrisks.length >= 63)$(thisparent + i + ' div.calc.risks').html(thisrisks.substr(0, 63) + '...');
@@ -954,7 +1014,6 @@ $(document).ready(function () {
 
             i++;
         });
-        $('div.calc_page3 input.insured').val($('input[name="last_name_0"]').val() + ' ' + $('input[name="first_name_0"]').val());
         if (finalshengen == 1) $('div.calc_page3 div.calc_page3_top_subinfo').show();
         else $('div.calc_page3 div.calc_page3_top_subinfo').hide();
         globalpremium = globalpremium.toFixed(2).toString();
@@ -990,6 +1049,8 @@ $(document).ready(function () {
             else emptyflag = 0;
         });
         if (errorflag != 1 && emptyflag != 1 && checkTotalSum > 0) {
+            var insured = $('input.insured');
+            insured.val(insured.val().toUpperCase());
             $('div#calc_page3_subpage1').hide();
             $('div#calc_page3_subpage2').show();
             $(this).siblings('div.error').html('');
@@ -997,28 +1058,16 @@ $(document).ready(function () {
         else if (checkTotalSum <= 0) $(this).siblings('div.error').html(errorsArr[12]);
         else $(this).siblings('div.error').html(errorsArr[3]);
     });
-    var checkflag = 0;
     $('div.calc_page3 input#next').click(function () {
-        if (checkflag == 1) {
+        if ($("#agreement").siblings("label").hasClass("selected")) {
             var cont = $("#calc_wrap");
             isChangeSize = false;
             XD.postMessage(cont.outerHeight( true )+500+","+cont.outerWidth( true ), parent_url, parent );
 
-            $('div#calc_page3_subpage2').hide();
             document.getElementById('registration').submit();
             $(this).siblings('div.error').html();
         }
         else $(this).siblings('div.error').html(errorsArr[10]);
     });
-    checkAgr = function (thiselem) {
-        if ($(thiselem).siblings('input[type="checkbox"]').attr('checked') == "checked") {
-            $(thiselem).css('background-position', '0px -76px');
-            checkflag = 0;
-        }
-        else {
-            $(thiselem).css('background-position', '0px 1px');
-            checkflag = 1;
-        }
-    };
     $('input#agreement_check').fadeTo(0, 0);
 });
