@@ -53,7 +53,7 @@ body {margin: 0; color:#ffffff; font-family:Verdana, Geneva, sans-serif; font-si
 
 #calc .bird a { width:67px; height:65px; background:url('../img/bird.png'); margin:0 auto; display:block; margin-bottom:15px; cursor:pointer}
 #calc .bird a:hover {background:url('../img/bird_hover.png');}
-#calc .bird.fill { width:67px; height:65px; background:url('../img/bird_fill.png'); margin:0 auto; display:block; margin-top:20px;}
+#calc .bird.fill { width:67px; height:65px; background:url('../img/bird_fill.png') no-repeat; margin:0 auto; display:block; margin-top:20px;}
 
 #calc .birdMini {background:url('../img/birdMini.png'); height: 29px; width: 29px; display: block;margin-left: 5px;position: absolute;}
 

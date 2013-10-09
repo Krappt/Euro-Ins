@@ -131,6 +131,6 @@ div#calc_wrap div.calc_page4_center {  border-top:solid 1px #FFFFFF; padding-top
 div.calc.number_polis { font-size:18px; text-align:center}
 div.calc.number_polis.top { font-size:20px; margin-bottom:30px}
 div.calc.number_polis.center { width:550px; margin:0 auto}
-div#calc_wrap div.bird.fill a { width:67px; height:65px;background:url('i/bird_fill.png'); margin:0 auto; display:block; margin:0 auto; margin-top:30px; margin-bottom:15px}
+div#calc_wrap div.bird.fill a { width:67px; height:65px;background:url('i/bird_fill.png') no-repeat; margin:0 auto; display:block; margin:0 auto; margin-top:30px; margin-bottom:15px}
 div#calc_wrap div.calc_page4_bottom { border-top:solid 2px #FFFFFF; padding-top:30px; text-align:center}
 div#calc_wrap div.calc_page4_bottom > div { width:620px; margin:0 auto}
