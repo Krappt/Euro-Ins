@@ -1,0 +1,173 @@
+/*calculator*/
+body {margin: 0}
+
+div#calc_wrap a {cursor: pointer}
+
+h4 {font-size:20px; text-align:center; margin:0}
+h4+span { text-align:center; font-size:15px; display:block; margin-top:30px}
+
+div#calc_wrap { color:#ffffff; font-family:Verdana, Geneva, sans-serif; width:696px; background:#14559a ; padding:10px 0px 30px 0px; position:relative}
+div#calc_wrap div.calc_page1,div#calc_wrap div.calc_page2 { padding: 0 30px 0 30px}
+
+div.calc.dateSplit {margin-top: 20px;width: 302px;overflow: hidden;}
+div.calc.dateSplit.dateSplitInDay {margin-top: 0}
+div.calc.dateSplit > div {height:30px;  background-color: #ffffff; float: left;margin-left: 10px; text-align: center; padding-top: 7px}
+div.calc.dateSplit div.dateSplitDay {width: 21%; margin-left: 0}
+div.calc.dateSplit div.dateSplitMonth {width: 44%}
+div.calc.dateSplit div.dateSplitYear {width: 28.3%}
+
+input.calc.field {border:1px solid #ffffff; height:33px; font-size:17.3px; text-align:center; cursor:pointer; background-color:transparent; color:#ffffff; font-family:Verdana, Geneva, sans-serif; position:relative; line-height:35px}
+div#calc_wrap .unactive, div#calc_wrap .use {background-color:#ffffff;color:#666666;}
+div#calc_wrap .hover { background-color:#5da3f5;color:#ffffff;}
+div#calc_wrap .active:hover {background-color:#5da3f5;color:#ffffff;}
+div#calc_wrap .unactive:hover {background-color:#5da3f5;color:#ffffff;}
+div#calc_wrap .use:hover {background-color:#ffffff; color:#666666;}
+
+input.calc.button { background-color:#edf121; border:1px solid #ffffff;width:198px; height:40px; text-align:center; cursor:pointer;  color:#14559a; font-size:20px;  margin:0 auto; display:block; margin-top:10px;position:relative}
+input.calc.button:hover {background-color:#ffffff;border:1px solid #5da3f5;}
+input.calc.input_text { padding-left:10px; padding-right:10px; width:280px}
+input.calc.select_text { padding-left:10px; padding-right:10px; width:280px}
+textarea.calc.divarea {padding:0;background:none;border:1px solid #ffffff;position: relative;position:relative; width:300px; height:71px; line-height:70px;font-size:12px; text-align:center;cursor:pointer; font-family:Verdana, Geneva, sans-serif; color:#ffffff; overflow:hidden; resize:none;}
+textarea.calc.divarea.unactive, textarea.calc.divarea.use {background-color:#ffffff;}
+textarea.calc.divarea.unactive:hover, textarea.calc.divarea.active:hover {background-color:#5da3f5;}
+
+input.calc.field.second { margin-top:20px; display:block}
+span.calc.subtext { display:block; font-size:14px; text-align:center; margin-top:10px}
+span.calc.subtextDate { display:block; font-size:14px; text-align:right; margin-top:40px}
+div.birthday_list span.calc.subtextDate { margin-top:5px}
+div.calc.error {font-size: 10px; margin-top:-15px; color: #EDF122; display:block; position:absolute; visibility: visible}
+div.calc.error.date {margin-top: 5px}
+div.calc.error.phone, div.calc.error.email {margin-top: 0}
+div.calc.error.all { margin-left:227px;margin-top:0;}
+div.calc.error.all1 {margin-top:-5px;}
+*:first-child+html div.calc.error.date { margin-left:-55px} /*hack for IE7*/
+*:first-child+html div.calc.error.date0 { margin-top:45px;margin-left:-300px} /*hack for IE7*/
+div.calc.error:first-child {float:left}
+span.calc.subtext.calcdays { font-size:15px; margin-top:20px}
+a.calc.link { color:#ffffff; font-size:11px; text-decoration:underline; text-align:right; display:block; margin-top:5px; cursor:pointer}
+a.calc.link.human { text-align:left; display:inline}
+div.remove_human { height: 20px; margin-bottom: 20px}
+div.remove_human a.calc.link { font-size:15px; width: 100px; text-decoration:none; float: right;}
+div.remove_human a.calc.link span { font-weight:bold; margin-right:10px}
+div.remove_human a.calc.link:hover {text-decoration:none; color:#5da3f5}
+div#human_wrap { margin-bottom:5px; overflow:hidden}
+div.calc.addhumanline {margin-left:132px; margin-top:15px}
+a.calc.link:hover { text-decoration:none}
+div.calc_subpage { overflow:hidden; margin-top:30px}
+div.calc_subpage:first-child {margin-top:0}
+.standart_program { display:block}
+div#multi_program {width: 302px;text-align: center;margin-top: 30px; display:none}
+
+div.calc.line.program, div.calc.line.dates {margin-top:0}
+div.calc.line { margin-top:20px}
+div.calc_page1_top { margin-top:35px;}
+div.calc.left { float:left}
+div.calc.right { float:right;}
+
+div.calc.list {}
+div.calc.list ul li.lastchild {background:url('images/ulbottom.png') no-repeat 0px bottom; padding-bottom:20px;}
+div.calc.list ul { position:absolute; z-index:10; display:none;list-style:none; text-align:center; color:#666666; padding:0; font-size:18px; margin-top:-9px; width:302px;background-color:#FFFFFF}
+
+div.calc.list.sum_list ul { z-index: 101;}
+div.calc.list.country_list ul li{ text-align:left; padding-left:10px}
+*:first-child+html div.calc.list ul {left:-10px; margin-top:35px} /*hack for IE7*/
+*:first-child+html div.calc.list.risk_list ul {left:323px; margin-top:35px} /*hack for IE7*/
+*:first-child+html div.calc.list.sum_list ul {left:323px; margin-top:-15px} /*hack for IE7*/
+*:first-child+html div.calc.list.firstname_list ul { margin-top:-15px} /*hack for IE7*/
+div.calc.list.risk_list ul {font-size:12px; }
+div.calc.list ul li { margin-top:10px; cursor:pointer; width:302px; position:relative; top:15px }
+div.calc.list ul li:first-child { margin-top:10px; border-top:solid 2px #14559a; padding-top:10px;}
+div.calc.list ul div.cyrillic { font-size:11px; text-align:left; padding-left:20px; border-bottom:solid 2px #14559a; margin-top:-5px; padding-bottom:10px; background-color:#FFFFFF; position:relative; top:10px}
+
+div#calc_wrap hr { border: dashed 1px #FFFFFF; margin-top:30px; width:600px}
+div#calc_wrap div.bird a { width:67px; height:65px;background:url('../images/bird.png'); margin:0 auto; display:block; margin:0 auto; margin-bottom:15px; cursor:pointer}
+div#calc_wrap div.bird a:hover {background:url('../images/bird_hover.png');}
+div#calc_wrap div.calc_page2_center div.calc.center { background:#5da3f5; padding:15px; text-align:center}
+div#calc_wrap div.calc_page2_center div.calc.center p { line-height:20px; font-size:14px}
+
+div#calc_wrap div.calc_page3 {overflow:hidden;}
+div#calc_wrap div.calc_page3_top { padding-bottom:15px;overflow: hidden;}
+div#calc_wrap div.calc_page3 div.calc_page3_block {float:left; width:160px; overflow:hidden;margin-left: 10px; text-align:center; overflow:hidden}
+div#calc_wrap div.calc_page3 div.calc_page3_block div.value { font-weight:bold; margin-bottom:10px; font-size:14px}
+div#calc_wrap div.calc_page3 div.calc_page3_block div.title { font-size:12px}
+div#calc_wrap div.calc_page3 div.calc_page3_top_subinfo {font-size:10px; clear: both; padding-top:20px; margin-left:20px}
+
+div#calc_wrap div.calc_page3 div.calc_page3_center { clear:both; }
+div#calc_wrap div.calc_page3 div.calc_subpage_human { border-top:solid 1px #FFFFFF; padding-top:15px; overflow:hidden; padding-bottom:15px}
+div#calc_wrap div.calc_page3 div.calc_page3_block.human_block { width:200px; margin-left:25px}
+div#calc_wrap div.calc_page3 div.calc_page3_block.human_block.left { text-align:left}
+div#calc_wrap div.calc_page3 div.calc_page3_block.price_block { width:250px; margin-left:25px; float:right; margin-top:20px; margin-right:20px; text-align:right}
+div#calc_wrap div.calc_page3 div.calc_page3_block.price_block div.value {font-size:18px}
+div#calc_wrap div.calc_page3 div.calc_page3_center_subinfo {font-size:10px; clear: both; position:relative; top:-10px; margin-left:20px}
+
+div#calc_wrap div.calc_page3 div.calc_page3_bottom { border-top:solid 2px #FFFFFF; font-size:14px; padding:15px 20px 0px 20px;}
+div#calc_wrap div.calc_page3 div#calc_page3_subpage2 div.calc_page3_bottom_line div.calc.error.all {margin-left: 140px; margin-top: -15px;}
+*:first-child+html div#calc_wrap div.calc_page3 div.calc_page3_bottom_line div.calc.error.email { margin-top:60px;margin-left:-290px} /*hack for IE7*/
+*:first-child+html div#calc_wrap div.calc_page3 div.calc_page3_bottom_line div.calc.error.phone { margin-top:60px;margin-left:-290px} /*hack for IE7*/
+div#calc_wrap div.calc_page3 div.calc_page3_bottom div.calc.left_info { text-align:center; width:335px; float:left; padding-top:15px; margin-top:10px; line-height:25px}
+div#calc_wrap div.calc_page3 div.calc_page3_bottom div.calc.right_info { margin-left:345px}
+div#calc_wrap div.calc_page3 div.calc_page3_bottom div.calc.right_info input { margin-top:15px}
+div#calc_wrap div.calc_page3 div.calc_page3_bottom input.address { margin-top:10px; width:616px;margin-left:10px; }
+div#calc_wrap div.calc_page3 div.calc_page3_bottom div.calc.list.insured_list .error {margin-top: 0}
+*:first-child+html div#calc_wrap div.calc_page3 div.calc_page3_bottom div.calc.list.insured_list ul {left:335px; margin-top:51px} /*hack for IE7*/
+div#calc_wrap div.calc_page3 div.calc_page3_bottom_line input[type="button"] { margin-top:20px}
+
+div#calc_wrap div.calc_page3 div.calc_page3_bottom_head { font-size:18px}
+div#calc_wrap div.calc_page3 div.calc.agreement {margin-top:20px; margin-bottom:30px}
+div#calc_wrap div.calc_page3 div.calc.agreement.left {  text-align:center; width:570px;}
+div#calc_wrap div.calc_page3 div.calc.agreement a { color:#FFFFFF; text-decoration: underline}
+div#calc_wrap div.calc_page3 div.calc.agreement a:hover { text-decoration: none}
+
+#calc_wrap div.calc_page3 .agreementCheckBoxGroup {float: right}
+#calc_wrap input[type="checkbox"].checkBoxNormal + label {
+    display: block;
+    cursor: pointer;
+    padding-left: 40px;
+    line-height: 43px;
+    height: 43px;
+    background: url('../images/checked.png') no-repeat 0 -76px;
+}
+#calc_wrap input[type="checkbox"].checkBoxNormal + label.selected {
+    background-position: 0 1px;
+}
+
+#calc_wrap input[type="checkbox"] { display: none}
+#calc_wrap input[type="checkbox"].checkBoxNormal + label {margin: 0 0 -10px 30px;}
+
+div#calc_wrap div.calc_page3 div.calc.payment_icon {background:url('../images/pay.png'); width:135px; height:33px; clear:both; margin:0 auto;}
+div#calc_wrap div.calc_page3 p.calc.payment_info { font-size:11px; text-align:center}
+div#calc_wrap div.calc_page3 div.calc_page3_bottom_line {padding-top: 2px;}
+div#calc_wrap div.calc_page3 div.calc_page3_bottom_line input#next + div.calc.error.all { margin-left: 140px }
+
+div#calc_wrap div.calc_page4 { height:630px}
+div#calc_wrap div.calc_page4_head { height:130px}
+div#calc_wrap div.calc_page4_center {  border-top:solid 1px #FFFFFF; padding-top:50px}
+div.calc.number_polis { font-size:18px; text-align:center}
+div.calc.number_polis.top { font-size:20px; margin-bottom:30px}
+div.calc.number_polis.center { width:550px; margin:0 auto}
+div#calc_wrap div.bird.fill a { width:67px; height:65px;background:url('../images/bird_fill.png') no-repeat; margin:0 auto; display:block; margin:0 auto; margin-top:30px; margin-bottom:15px}
+div#calc_wrap div.calc_page4_bottom { border-top:solid 2px #FFFFFF; padding-top:30px; text-align:center}
+div#calc_wrap div.calc_page4_bottom > div { width:620px; margin:0 auto}
+
+#calc_wrap .popUpOutside { display:none; }
+#calc_wrap .popUpBg {
+    background-color: #000000;
+    left: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.3)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity = 0.3);
+    filter: alpha(opacity=0.3);
+    moz-opacity: 0.3;
+    -khtml-opacity: 0.3;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;}
+#calc_wrap .popUpInside {overflow:auto; background:#5da3f5; border:1px solid #ffffff; padding:0 30px 0 30px; width:610px; text-align: center; position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 100000;}
+*:first-child+html #calc .popUpInside { /* хак для ие7 */
+    padding-top: 10px;
+}
