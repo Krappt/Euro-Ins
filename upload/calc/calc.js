@@ -3,8 +3,8 @@ var EIInit = {};
 
     'use strict';
 
-    var locationRequest = 'http://www.euro-ins.ru/calc/js/postmessage.js';
-    var iframeSrc = "http://www.euro-ins.ru/calc/calc.php";
+    var locationRequest = 'http://www.euro-ins.ru/calc/postmessage.js';
+    var iframeSrc = "http://www.euro-ins.ru/calc/health/index.php";
     var scriptId = "euro-ins-calc";
 
     function main() {
