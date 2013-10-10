@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WordPress package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WordPress 3.5\n"
+"Project-Id-Version: WordPress 3.6.1\n"
 "Report-Msgid-Bugs-To: http://wppolyglots.wordpress.com\n"
 "POT-Creation-Date: 2013-08-01 15:13:10+00:00\n"
-"PO-Revision-Date: 2013-08-03 17:56+0400\n"
+"PO-Revision-Date: 2013-09-11 23:17+0400\n"
 "Last-Translator: Sergey Biryukov <sergeybiryukov.ru@gmail.com>\n"
 "Language-Team: ru.wordpress.org <sergeybiryukov.ru@gmail.com>\n"
 "Language: ru_RU\n"
