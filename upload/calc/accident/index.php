@@ -65,14 +65,14 @@
                      </div>
                  </div>
                  <div id="addSportLine">
-                 <a id="addSportButton">добавить спорт</a><span> - Полис для спортсменов-любителей.</span><span class="birdMini" id="sportBird"></span>
+                 <span class="birdMini" id="sportBird"></span><a id="addSportButton">добавить спорт</a><span> - Полис для спортсменов-любителей</span>
                  </div>
 
     </div>
     <div id="page2Bottom">
             <div id="page2MainHint" class="hint2"></div>
 
-            <div class="title3">Программа включает защиту от рисков:</div>
+            <div class="title2 textBold">Программа включает защиту от рисков:</div>
             <div>
                 <ul id="riskList" class="title2">
                 </ul>

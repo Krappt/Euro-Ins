@@ -20,7 +20,7 @@ body {margin: 0; color:#ffffff; font-family:Verdana, Geneva, sans-serif; font-si
 #calc .title, #calc .policyCost {font-size: 21px; font-weight: bold}
 #calc .title2 {font-size: 15px}
 #calc .title3 {font-size: 17px}
-#calc .policyCost, #calc .requestNumber {font-weight: bold}
+#calc .policyCost, #calc .requestNumberm, #calc .textBold {font-weight: bold}
 #calc .hint {font-size: 11px; display: block; margin-top: 10px}
 #calc .hint2 {font-size: 15px;}
 #calc .subtext { display:block; font-size:14px; text-align:right; margin-top:5px;}
@@ -163,7 +163,7 @@ this == ((200/2)-parseInt(offsetHeight)/2) <0 ? style.marginTop="0" : style.marg
 
 #calc #page2 #page2Top {border-bottom: #ffffff 1px solid; }
 #calc #page2 #page2Top #addSportLine {position: relative; margin-bottom: 0; }
-#calc #page2 #page2Top #addSportLine #sportBird { display: none;right: 85px;top: -10px; }
+#calc #page2 #page2Top #addSportLine #sportBird { display: none;left: 85px;top: -10px; }
 
 
 #calc #page2dot1 {padding: 10px;}
